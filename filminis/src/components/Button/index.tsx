@@ -3,7 +3,7 @@ import './Button.css';
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
+function Button ({ children, ...props }: ButtonProps){
   return (
     <button className="submit-button" {...props}>
       {children}

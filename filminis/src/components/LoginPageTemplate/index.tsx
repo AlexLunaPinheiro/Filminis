@@ -5,8 +5,12 @@ interface PageTemplateProps {
   children: React.ReactNode;
 }
 
-const PageTemplate: React.FC<PageTemplateProps> = ({ children }) => {
-  return <div className="page-wrapper">{children}</div>;
+function PageTemplate ({ children }: PageTemplateProps){
+  return (
+    <>
+      <div className="page-wrapper">{children}</div>
+    </>
+  )
 };
 
 export default PageTemplate;

@@ -5,7 +5,7 @@ interface TitleProps {
   children: React.ReactNode;
 }
 
-const Title: React.FC<TitleProps> = ({ children }) => {
+function Title ({ children }:TitleProps){
   return <h1 className="form-title">{children}</h1>;
 };
 

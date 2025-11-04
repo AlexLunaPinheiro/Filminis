@@ -1,7 +1,6 @@
-import React from 'react';
 import './LoginButtonGroup.css';
 
-const ButtonGroup: React.FC = () => {
+function ButtonGroup(){
   return (
     <div className="button-group-container">
       <button className="tab-button active">Registro</button>

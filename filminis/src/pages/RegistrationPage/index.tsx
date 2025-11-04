@@ -1,12 +1,15 @@
-import React from 'react';
 import PageTemplate from '../../components/LoginPageTemplate';
 import RegistrationForm from '../../components/RegistrationForm';
+import Navbar from '../../components/NavBar';
 
-const RegistrationPage: React.FC = () => {
+function RegistrationPage() {
   return (
-    <PageTemplate>
-      <RegistrationForm />
-    </PageTemplate>
+    <>
+      <Navbar />
+      <PageTemplate>
+        <RegistrationForm />
+      </PageTemplate>
+    </>
   );
 };
 

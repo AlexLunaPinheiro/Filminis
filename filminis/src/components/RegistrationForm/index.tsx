@@ -5,7 +5,7 @@ import Button from '../Button';
 import Title from '../Title';
 import './RegistrationForm.css';
 
-const RegistrationForm: React.FC = () => {
+function RegistrationForm(){
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     alert('Conta criada!');
