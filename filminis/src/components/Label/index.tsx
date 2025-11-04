@@ -1,0 +1,17 @@
+import React from 'react';
+import './Label.css';
+
+interface LabelProps {
+  htmlFor: string;
+  children: React.ReactNode;
+}
+
+const Label: React.FC<LabelProps> = ({ htmlFor, children }) => {
+  return (
+    <label className="form-label" htmlFor={htmlFor}>
+      {children}
+    </label>
+  );
+};
+
+export default Label;

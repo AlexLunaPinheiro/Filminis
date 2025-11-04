@@ -1,0 +1,13 @@
+    .page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  /* Lembre-se de colocar a imagem na pasta 'public' */
+  background-image: url('../../assets/LOGIN-FUNDO.png'); 
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
