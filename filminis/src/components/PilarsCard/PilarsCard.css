@@ -1,0 +1,19 @@
+@import url("../../index.css");
+
+:root{
+    --c1: var(--cor-secundaria);
+    --c2: var(--cor-secundaria-card-pilares)
+}
+.Card {
+    margin-top: 10vh;
+    margin-left: 10vw;
+    width: 400px;
+    height: 461px;
+    background: linear-gradient(120deg, var(--c1) 0%, var(--c2) 100%);
+    transition: --c1 0.5s, --c2 0.5s;
+}
+
+.Card:hover{
+    --c1: #00ffa3;
+    --c2: #1a1a1a;
+}

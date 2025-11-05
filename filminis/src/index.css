@@ -27,5 +27,8 @@ body {
   flex-direction: column;
   --cor-primaria: #12141A;
   --cor-secundaria: #44BE93 ;
+  --cor-secundaria-card-pilares: #24251E;
+  --cor-primaria-card-pilares-hover: #1F5844;
+  --cor-secundaria-card-pilares-hover: #24251E;
 }
 
