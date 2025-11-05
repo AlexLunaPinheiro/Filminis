@@ -2,11 +2,13 @@
   display: flex;
   align-items: center;
   position: fixed; 
+  padding: 15px 25px 15px 25px;
   top: 0;
   width: 100%;
   background-color: transparent; 
   border-bottom: solid 1px #353535;
   z-index: 10; 
+  gap: 3vw;
 }
 
 .logo {
@@ -17,5 +19,5 @@
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 100px;
 }

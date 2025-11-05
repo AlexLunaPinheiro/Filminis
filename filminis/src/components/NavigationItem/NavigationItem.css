@@ -1,5 +1,8 @@
+
+
 a{
     display: flex;
     text-decoration: none;
     color: #fff;
+    gap: 10px;
 }
