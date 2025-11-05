@@ -1,8 +1,16 @@
-
-
 a{
     display: flex;
     text-decoration: none;
     color: #fff;
     gap: 10px;
+    transition: ease-in 200ms;
+}
+
+a:hover{
+    color: var(--cor-secundaria)
+}
+
+p{
+    font-size: 1rem;
+    font-weight: 600;
 }
