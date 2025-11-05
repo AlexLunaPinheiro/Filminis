@@ -1,0 +1,33 @@
+article {
+  background-image: url('../../assets/background/Fundo-Hero-Section.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center; 
+  
+  width: 1000px;
+  height: 900px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto; 
+}
+
+article p {
+  background: linear-gradient(90deg, #44BE93 51%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 36px;
+  margin: 0;
+}
+
+article h1 {
+  font-size: 64px;
+  max-width: 500px;
+  text-align: center;
+  font-weight: 300;
+  color: #fff;
+  margin-top: 10px;
+}

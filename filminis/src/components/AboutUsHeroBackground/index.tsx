@@ -1,12 +1,13 @@
 import './AboutUsHeroBackground.css'
-import FundoHero from '../../assets/background/Fundo-Hero-Section.png'
+
 
 
 function AboutUsHeroBackground(){
     return(
-        <section>
-            <img src={FundoHero}></img>
-        </section>
+        <article>
+            <p>Uma experiência única</p>
+            <h1>Transformamos sua imaginação em vida.</h1>
+        </article>
     )
 };
 
