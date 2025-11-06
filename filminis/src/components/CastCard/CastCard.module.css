@@ -1,0 +1,46 @@
+.card {
+    width: 245px;
+    height: 304px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 20vh;
+    position: relative;
+    transition: ease 400ms;
+}
+
+.card:hover{
+    transform: scale(1.04);
+}
+
+.image {
+    position: absolute;
+    z-index: 0;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.infoContainer {
+    position: relative;
+    z-index: 1;
+    color: white;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.35);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    box-sizing: border-box;
+}
+
+.infoContainer h1 {
+    font-size: 24px;
+    font-weight: 500;
+    z-index: 2;
+}

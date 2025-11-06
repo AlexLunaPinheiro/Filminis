@@ -1,0 +1,16 @@
+.card{
+    width: 223px;
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 auto;
+    margin-top: 20vh;
+    overflow: hidden;
+}
+
+.card img{
+    width: 223px;
+    height: 270px;
+}
+
