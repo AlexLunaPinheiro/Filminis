@@ -5,7 +5,7 @@
 //import AboutUsHeroBackground from "./components/AboutUsHeroBackground";
 //import MovieCategoryModal from "./components/MovieCategory";
 //import Jason from "./assets/images/Jason.png"
-import ImageCardMovie from "./assets/images/Hellboy.png"
+//import ImageCardMovie from "./assets/images/Hellboy.png"
 //import MovieCard from "./components/MovieCard";
 //import ActionMovieCard from "./components/ActionMoviesCard";
 //import Chilgurn from "./assets/images/Chilgurn.png"
@@ -13,7 +13,8 @@ import ImageCardMovie from "./assets/images/Hellboy.png"
 //import PornActor from "./assets/images/Ator.png"
 //import Diretor from './assets/images/StanleyKubrick.png'
 //import DirectorCard from './components/DirectorCard';
-import MovieBanner from "./components/MovieBanner";
+//import MovieBanner from "./components/MovieBanner";
+import HomeCarrosselInfo from "./components/HomeCarrosselInfo";
 
 function App() {
   //return <RegistrationPage />;
@@ -24,7 +25,8 @@ function App() {
   //return <ActionMovieCard imageLink={Chilgurn} titulo="Onde os fracos não tem vez" duracao="02:30:03"/>
   //return <CastCard imageLink={PornActor} nome="Keir Dullea"/>
   //return <DirectorCard imageLink={Diretor} nome="Stanley Kubrick"/>
-  return <MovieBanner imageLink={ImageCardMovie}/>
+  //return <MovieBanner imageLink={ImageCardMovie}/>
+  return <HomeCarrosselInfo ano="2007" titulo="A origem" genero="Ficção científica"/>
 }
 
 export default App;
