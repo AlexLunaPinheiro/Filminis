@@ -25,10 +25,16 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+
   --cor-primaria: #12141A;
-  --cor-secundaria: #44BE93 ;
+  --cor-secundaria: #44BE93;
+  --cor-tercearia: #1A1A1A;
   --cor-secundaria-card-pilares: #24251E;
   --cor-primaria-card-pilares-hover: #1F5844;
   --cor-secundaria-card-pilares-hover: #24251E;
+  --cor-borda-de-input-cinza-escuro: #2C2C2E;
+  --cor-borda-de-formulario-cinza-escuro: #363636;
+  --cor-borda-inferior-nav-item-cinza-claro: #BBBBBB;
+  --cor-borda-inferior-nav-bar-cinza-escuro: #353535;
 }
 

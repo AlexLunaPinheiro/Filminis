@@ -1,0 +1,24 @@
+article{
+    position: relative;
+    width: 525px;
+    height: 310px;
+    background: #1E3639;
+    background: linear-gradient(148deg, rgba(30, 54, 57, 1) 51%, rgba(19, 22, 28, 1) 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 20vh;
+}
+
+article h1{
+    background: linear-gradient(120deg, #F0F0F0 51%, #8A8A8A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 48px;
+    position: absolute;
+    left: 58%;
+    top:70%;
+
+}

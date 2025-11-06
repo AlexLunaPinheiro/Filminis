@@ -1,0 +1,16 @@
+article{
+    width: 213px;
+    height: 351px;
+    background: #1E3639;
+    background: linear-gradient(148deg, rgba(30, 54, 57, 1) 51%, rgba(19, 22, 28, 1) 100%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 20vh;
+}
+
+article img{
+    border-radius: 5px;
+}
