@@ -1,0 +1,31 @@
+.FilterInputContainer{
+    color:#fff;
+    font-family: var(--fonte-primaria);
+    display: flex;
+    flex-direction: column;
+    gap: 8vh;
+}
+
+.FilterInputContainer label{
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.ButtonContainer{
+    display: flex;
+    width: 100%;
+
+}
+
+.FilterInputContainer input {
+  width: 410px;
+  background-color: transparent;
+  border: none;               
+  border-bottom: 1px solid #fff; 
+  color: #fff;
+  outline: none;                 
+}
+
+.FilterInputContainer input::placeholder{
+    font-size: 20px;
+}

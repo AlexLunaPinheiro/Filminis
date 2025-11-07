@@ -20,7 +20,6 @@ function Navbar (){
                 caminho="/home" 
                 title="HOME" 
                 imagem={HomeIcon} 
-                altText="Icone da Home" 
             />
         </li>
 
@@ -29,7 +28,6 @@ function Navbar (){
                 caminho="/solicitacoes" 
                 title="SOLICITAÇÕES" 
                 imagem={SolicitacoesIcon} 
-                altText="Icone de solicitação" 
             />
         </li>
 
@@ -38,7 +36,6 @@ function Navbar (){
                 caminho="/sobrenos" 
                 title="SOBRE NÓS" 
                 imagem={SobreNos} 
-                altText="Icone de solicitação" 
             />
         </li>
 
@@ -47,7 +44,6 @@ function Navbar (){
                 caminho="/pesquisa" 
                 title="PESQUISA" 
                 imagem={Pesquisa} 
-                altText="Icone de pesquisa" 
             />
         </li>
 

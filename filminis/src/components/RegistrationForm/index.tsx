@@ -1,7 +1,7 @@
 import React from 'react';
 import FormField from '../LoginFormField';
 import ButtonGroup from '../LoginButtonGroup';
-import Button from '../Button';
+import Button from '../ButtonLogin';
 import Title from '../Title';
 import './RegistrationForm.css';
 

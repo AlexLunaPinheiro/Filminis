@@ -9,7 +9,7 @@ type MovieCardProps = {
 
 function MovieCard ({imageLink, title, produtora, ano}: MovieCardProps){
     return(
-        <article>
+        <article className='movieCard'>
             <figure>
                 <img src={imageLink} alt="Imagem do poster do filme"></img>
             </figure>

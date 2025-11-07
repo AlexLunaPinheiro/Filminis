@@ -14,7 +14,13 @@
 //import Diretor from './assets/images/StanleyKubrick.png'
 //import DirectorCard from './components/DirectorCard';
 //import MovieBanner from "./components/MovieBanner";
-import HomeCarrosselInfo from "./components/HomeCarrosselInfo";
+//import HomeCarrosselInfo from "./components/HomeCarrosselInfo";
+//import HomeCarrossel from "./components/HomeCarrossel";
+//import FilmeBanner from "./assets/images/A-Origem.png"
+//import ButtonHome from "./components/ButtonHome";
+//import CategoryFilterOption from "./components/CategoryFilterOption";
+//import ButtonFilter from "./components/ButtonFilter";
+import FilterInput from "./components/FilterInput";
 
 function App() {
   //return <RegistrationPage />;
@@ -26,7 +32,12 @@ function App() {
   //return <CastCard imageLink={PornActor} nome="Keir Dullea"/>
   //return <DirectorCard imageLink={Diretor} nome="Stanley Kubrick"/>
   //return <MovieBanner imageLink={ImageCardMovie}/>
-  return <HomeCarrosselInfo ano="2007" titulo="A origem" genero="Ficção científica"/>
+  //return <HomeCarrosselInfo ano="2007" titulo="A origem" genero="Ficção científica"/>
+  //return <HomeCarrossel imageLink={FilmeBanner}/>
+  //return <ButtonHome text="Faça login"/>
+  //return <CategoryFilterOption text="Coiso" id='1'/>
+  //return <ButtonFilter text="atores"/>
+  return <FilterInput/>
 }
 
 export default App;

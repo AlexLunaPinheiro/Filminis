@@ -1,0 +1,29 @@
+.ButtonFilter {
+    width: 410px;
+    height: 67px;
+    border-radius: 20px;
+    font-family: var(--fonte-primaria);
+    background-color: transparent;
+    color: #fff;
+    border: solid 2px;
+    border-color: var(--cor-borda-inferior-nav-item-cinza-claro);
+    font-size: 36px;
+    font-weight: 600;
+    transition: ease 200ms;
+}
+
+.ButtonFilter:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+    color: var(--cor-secundaria);
+    border-color: var(--cor-secundaria);
+}
+
+.ButtonFilter:active{
+    transform: scale(1);
+}
+.ButtonFilter.activated {
+    background-color: var(--cor-botao-verde);
+    color: #fff;
+    border: none;
+}

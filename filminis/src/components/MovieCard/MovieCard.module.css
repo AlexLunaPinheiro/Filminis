@@ -1,4 +1,4 @@
-article{
+.movieCard{
     width: 220px;
     height: 351px;
     border-radius: 5px;
@@ -10,7 +10,7 @@ article{
     overflow: hidden;
 }
 
-article img{
+.movieCard img{
     width: 220px;
     height: 270px;
 }
@@ -31,7 +31,7 @@ article img{
     justify-content: space-between;
 }
 
-article h1{
+.movieCard h1{
     font-weight: 500;
     font-size: 18px;
     letter-spacing: 0.5px;

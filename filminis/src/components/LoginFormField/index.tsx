@@ -1,5 +1,5 @@
-import Label from '../Label';
-import Input from '../Input';
+import Label from '../LoginLabel';
+import Input from '../LoginInput';
 import './LoginFormField.css';
 
 interface FormFieldProps {

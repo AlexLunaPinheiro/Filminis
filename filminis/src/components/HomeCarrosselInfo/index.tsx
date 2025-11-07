@@ -9,8 +9,8 @@ type HomeCarrosselInfoProps = {
 
 function HomeCarrosselInfo({ ano, titulo, genero}: HomeCarrosselInfoProps) {
   return (
-        <article>
-            <div className={styles.CarrosselInfo}>
+        <article className={styles.CarrosselInfo}>
+            <div className={styles.CarrosselInfoContainer}>
                 <p>{titulo} ({ano})</p>
                 <p>{genero}</p>
             </div>

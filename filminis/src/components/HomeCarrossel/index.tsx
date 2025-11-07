@@ -1,27 +1,21 @@
-import styles from './HomeCarrosselInfo.module.css'
-import Seta from '../../assets/icons/Seta.png'
+import styles from './HomeCarrossel.module.css'
+import HomeCarrosselInfo from '../HomeCarrosselInfo';
 
-type HomeCarrosselInfoProps = {
-  ano: string;
-  titulo: string;
-  genero: string;
+type HomeCarrosselProps = {
+  imageLink: string
 };
 
-function HomeCarrosselInfo({ ano, titulo, genero}: HomeCarrosselInfoProps) {
+function HomeCarrossel({imageLink}: HomeCarrosselProps) {
   return (
-        <article>
-            <div className={styles.CarrosselInfo}>
-                <p>{titulo} ({ano})</p>
-                <p>{genero}</p>
-            </div>
+        <article className={styles.bannerCarrossel}>
+          <figure>
+            <img src={imageLink} alt="imagem do carrossel"></img>
+          </figure>
 
-            <a href=''>VER MAIS
-                <img src={Seta}></img>
-            </a>
-
+          <HomeCarrosselInfo ano="2007" titulo="A origem" genero="Ficção científica"/> 
         </article>
         
   );
 }
 
-export default HomeCarrosselInfo;
+export default HomeCarrossel;

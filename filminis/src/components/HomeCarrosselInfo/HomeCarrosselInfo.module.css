@@ -1,4 +1,4 @@
-article{
+.CarrosselInfo{
     position: absolute;
     width: 1488px;
     height: 89px;
@@ -11,30 +11,33 @@ article{
     padding: 0 50px;
     justify-content: space-between;
     z-index: 2;
+    margin-bottom: 20px;
 }
 
-.CarrosselInfo {
+.CarrosselInfoContainer {
   display: flex;
   gap: 70px;
   align-items: center;
 }
 
-.CarrosselInfo p{
+.CarrosselInfoContainer p{
   font-size: 32px;
 }
 
-article a{
+.CarrosselInfo a{
     font-size: 32px;
     text-decoration: none;
     color: var(--cor-texto-principal);
     transition: ease 200ms;
+    display: flex;
+    align-items: center;
 }
 
-article a:hover{
+.CarrosselInfo a:hover{
     color: var(--cor-texto-cinza-claro)
 }
 
-article a img{
+.CarrosselInfo a img{
     margin-left: 20px;
     width: 20px;
 }
