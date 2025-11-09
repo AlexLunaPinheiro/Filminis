@@ -7,6 +7,7 @@
     margin-top: 20vh;
     position: relative;
     transition: ease 400ms;
+    font-family: var(--fonte-primaria);
 }
 
 .card:hover{
@@ -21,7 +22,6 @@
 .image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
 }
 
 .infoContainer {

@@ -1,0 +1,33 @@
+.submit-button {
+    background-color: #2e8263;
+    border: none;
+    
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+
+.submit-button.max{
+    width: 1579.84px;
+    height: 79px;
+    border-radius: 8px;
+}
+
+.submit-button.min{
+    width: 1270px;
+    height: 55px;
+    border-radius: 10px;
+}
+
+.submit-button.login{
+    width: 623px;
+    height: 79px;
+    border-radius: 10px;
+}
+
+.submit-button:hover {
+    background-color: #256a50;
+}

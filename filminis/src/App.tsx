@@ -20,7 +20,12 @@
 //import ButtonHome from "./components/ButtonHome";
 //import CategoryFilterOption from "./components/CategoryFilterOption";
 //import ButtonFilter from "./components/ButtonFilter";
-import FilterInput from "./components/FilterInput";
+//import FilterInput from "./components/FilterInput";
+//import Topic from "./components/Topic";
+//import CategoryFilterContainer from "./components/CategoryFilterContainer";
+//import GenericInput from "./components/GenericInput";
+//import ButtonGeneric from "./components/ButtonGeneric";
+import Chips from "./components/Chips";
 
 function App() {
   //return <RegistrationPage />;
@@ -37,7 +42,12 @@ function App() {
   //return <ButtonHome text="Faça login"/>
   //return <CategoryFilterOption text="Coiso" id='1'/>
   //return <ButtonFilter text="atores"/>
-  return <FilterInput/>
+  //return <FilterInput/>
+  //return <Topic text="Cuzinho"/>
+  //return <CategoryFilterContainer/>
+  //return <GenericInput label="Titulo" placeholder="Digite o titulo do filme"/>
+  //return <ButtonGeneric variant="login">cuzinho</ButtonGeneric>
+  return <Chips text="CU PRETO" variant="waiting"/>
 }
 
 export default App;
