@@ -1,0 +1,11 @@
+.homeContainer {
+  
+    background: url('../../assets/background/FUNDO.png') no-repeat / cover;
+    min-height: 100vh; 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    font-family: var(--fonte-primaria);
+}

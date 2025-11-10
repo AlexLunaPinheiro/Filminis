@@ -1,0 +1,6 @@
+.NavigationIdContainer{
+    width: 270px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vh;
+}

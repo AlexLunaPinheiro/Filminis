@@ -2,17 +2,20 @@ import styles from './HomeCarrossel.module.css'
 import HomeCarrosselInfo from '../HomeCarrosselInfo';
 
 type HomeCarrosselProps = {
-  imageLink: string
+    imageLink: string;
+    ano: string;
+    titulo: string;
+    genero: string;
 };
 
-function HomeCarrossel({imageLink}: HomeCarrosselProps) {
+function HomeCarrossel({imageLink, ano, titulo, genero}: HomeCarrosselProps) {
   return (
         <article className={styles.bannerCarrossel}>
-          <figure>
-            <img src={imageLink} alt="imagem do carrossel"></img>
-          </figure>
+            <figure>
+                <img src={imageLink} alt={`Banner do filme ${titulo}`}></img>
+            </figure>
 
-          <HomeCarrosselInfo ano="2007" titulo="A origem" genero="Ficção científica"/> 
+            <HomeCarrosselInfo ano={ano} titulo={titulo} genero={genero}/> 
         </article>
         
   );

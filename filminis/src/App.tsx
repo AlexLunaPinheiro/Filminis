@@ -25,7 +25,8 @@
 //import CategoryFilterContainer from "./components/CategoryFilterContainer";
 //import GenericInput from "./components/GenericInput";
 //import ButtonGeneric from "./components/ButtonGeneric";
-import Chips from "./components/Chips";
+//import Chips from "./components/Chips";
+import Home from "./pages/Home";
 
 function App() {
   //return <RegistrationPage />;
@@ -47,7 +48,8 @@ function App() {
   //return <CategoryFilterContainer/>
   //return <GenericInput label="Titulo" placeholder="Digite o titulo do filme"/>
   //return <ButtonGeneric variant="login">cuzinho</ButtonGeneric>
-  return <Chips text="CU PRETO" variant="waiting"/>
+  //return <Chips text="CU PRETO" variant="waiting"/>
+  return <Home/>
 }
 
 export default App;
