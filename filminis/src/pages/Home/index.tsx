@@ -6,7 +6,7 @@ import Navbar from '../../components/NavBar';
 import CategorySlider from '../../components/CategorySlider';
 import Topic from '../../components/Topic';
 import ActionMoviesSlider from '../../components/ActionMoviesCardSlider';
-
+import MoviesSlider from '../../components/MoviesSlider';
 
 type Filme = {
     id: number;
@@ -92,6 +92,12 @@ function Home(){
             </div>
             
             <ActionMoviesSlider/>
+
+            <div className={styles.topicContainer}>
+                <Topic text='Aclamados pela crítica'/>
+            </div>
+            
+            <MoviesSlider/>
 
         </div>
     )

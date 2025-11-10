@@ -1,38 +1,42 @@
-.movieCard{
-    width: 220px;
-    height: 351px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 0 auto;
-    margin-top: 20vh;
+.movieCard {
+    width: 213px; 
+    flex-shrink: 0; 
+
+    background-color: transparent;
+    font-family: var(--fonte-primaria); 
+}
+
+.movieCard figure {
+    width: 100%;
+    height: 270px; 
+    border-radius: 12px;
     overflow: hidden;
+    margin: 0;
+    margin-bottom: 12px; 
 }
 
-.movieCard img{
-    width: 220px;
-    height: 270px;
-}
-
-.info-container{
+.movieCard img {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 5px 0px 10px 0px;
-    gap:7px;
+    object-fit: cover;
+    display: block;
 }
 
-.desc{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.movieCard h1{
-    font-weight: 500;
+.infoContainer h1 {
     font-size: 18px;
-    letter-spacing: 0.5px;
+    font-weight: 500;
+    color: var(--cor-texto-principal); 
+    margin: 0 0 5px 0;
+    
+    /* Evita quebra de linha feia */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.desc {
+    display: flex;
+    gap: 15px; /* Espaço entre produtora e ano */
+    font-size: 14px;
+    color: var(--cor-texto-cinza-claro); /* ou #AAA */
 }

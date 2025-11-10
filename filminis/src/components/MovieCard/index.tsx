@@ -1,4 +1,4 @@
-import './MovieCard.module.css'
+import styles from './MovieCard.module.css' // Importa como 'styles'
 
 type MovieCardProps = {
     imageLink: string,
@@ -9,18 +9,17 @@ type MovieCardProps = {
 
 function MovieCard ({imageLink, title, produtora, ano}: MovieCardProps){
     return(
-        <article className='movieCard'>
+        <article className={styles.movieCard}>
             <figure>
-                <img src={imageLink} alt="Imagem do poster do filme"></img>
+                <img src={imageLink} alt={`Poster do filme ${title}`}></img>
             </figure>
-            <div className='info-container'>
+            <div className={styles.infoContainer}>
                 <h1>{title}</h1>
-                <div className='desc'>
+                <div className={styles.desc}>
                     <p>{produtora}</p>
                     <p>{ano}</p>
                 </div>
             </div>
-            
         </article>
     )
 }
