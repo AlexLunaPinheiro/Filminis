@@ -9,3 +9,9 @@
     position: relative;
     font-family: var(--fonte-primaria);
 }
+
+.topicContainer{
+    width: 100%;
+    display: flex;
+    padding: 7vh 7vw;
+}

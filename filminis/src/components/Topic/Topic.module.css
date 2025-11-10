@@ -1,4 +1,4 @@
-h1{
+.topic{
     display: flex;
     flex-direction: column;
     width: fit-content;
@@ -6,7 +6,7 @@ h1{
     font-family: var(--fonte-primaria);
 }
 
-h1::after{
+.topic::after{
     content: '';
     margin-top: 10px;
     border: 2px solid transparent; 

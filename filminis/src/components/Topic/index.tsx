@@ -1,4 +1,4 @@
-import './Topic.module.css'
+import Styles from './Topic.module.css'
 
 type TopicProps = {
     text: string
@@ -6,7 +6,7 @@ type TopicProps = {
 
 function Topic({text}: TopicProps){
     return(
-        <h1>
+        <h1 className={Styles.topic}>
             {text}
         </h1>
     )

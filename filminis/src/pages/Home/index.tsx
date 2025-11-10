@@ -4,6 +4,9 @@ import HomeCarrossel from '../../components/HomeCarrossel';
 import styles from './Home.module.css'; 
 import Navbar from '../../components/NavBar';
 import CategorySlider from '../../components/CategorySlider';
+import Topic from '../../components/Topic';
+import ActionMoviesSlider from '../../components/ActionMoviesCardSlider';
+
 
 type Filme = {
     id: number;
@@ -84,8 +87,11 @@ function Home(){
             />
 
             <CategorySlider/>
-
-            {/* <ActionMovieCard titulo='Horror' imageLink=''/> */}
+            <div className={styles.topicContainer}>
+                <Topic text='O melhor da Ação'/>
+            </div>
+            
+            <ActionMoviesSlider/>
 
         </div>
     )
