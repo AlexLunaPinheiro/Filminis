@@ -1,6 +1,13 @@
+.headerHome{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .homeContainer {
   
-    background: url('../../assets/background/FUNDO.png') no-repeat / cover;
+    background: url('../../assets/background/FUNDO.png');
     min-height: 100vh; 
     width: 100%;
     display: flex;
@@ -8,6 +15,13 @@
     align-items: center;
     position: relative;
     font-family: var(--fonte-primaria);
+}
+
+.homeMain{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .topicContainer{

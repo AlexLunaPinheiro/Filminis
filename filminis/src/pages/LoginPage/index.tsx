@@ -1,8 +1,8 @@
 import PageTemplate from '../../components/LoginPageTemplate';
-import RegistrationForm from '../../components/RegistrationForm';
+import RegistrationForm from '../../components/LoginForm';
 import Navbar from '../../components/NavBar';
 
-function RegistrationPage() {
+function LoginPage() {
   return (
     <>
       <Navbar />
@@ -13,4 +13,4 @@ function RegistrationPage() {
   );
 };
 
-export default RegistrationPage;
+export default LoginPage;

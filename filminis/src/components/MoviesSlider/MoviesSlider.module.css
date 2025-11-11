@@ -11,31 +11,22 @@
 .viewport {
     max-width: 1645px;
     display: flex;
-    gap: 64px; /* O espaço entre cada MovieCard */
-    
-    /* A MÁGICA: */
+    gap: 64px;
     overflow-x: auto;
-    scroll-behavior: smooth; /* Anima a rolagem feita pelo JS */
-    
-    /* Esconde a barra de scroll */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE e Edge */
+    scroll-behavior: smooth; 
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
 }
 .viewport::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, etc. */
+    display: none; 
 }
 
-/* Botões de Navegação */
 .navButton {
     position: absolute;
     top: 50%;
-    /* Coloca no meio da *imagem* (405px / 2 = ~202px) */
-    /* Ajuste -15px para centralizar no texto (202 - 15) */
     margin-top: -15px; 
     transform: translateY(-50%);
     z-index: 2;
-
-    /* Estilo (copiado do seu outro slider) */
     background: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
@@ -51,9 +42,9 @@
 }
 
 .prevButton {
-    left: 15px; /* Alinha à esquerda do .sliderContainer */
+    left: 15px; 
 }
 
 .nextButton {
-    right: 15px; /* Alinha à direita do .sliderContainer */
+    right: 15px;
 }

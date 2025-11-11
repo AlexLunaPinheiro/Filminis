@@ -1,19 +1,74 @@
 @import url("../../index.css");
 
 :root{
-    --c1: var(--cor-secundaria);
+    --c1: var(--cor-primaria-card-pilares);
     --c2: var(--cor-secundaria-card-pilares)
 }
 .Card {
-    margin-top: 10vh;
-    margin-left: 10vw;
+    position: relative;
     width: 400px;
     height: 461px;
     background: linear-gradient(120deg, var(--c1) 0%, var(--c2) 100%);
     transition: --c1 0.5s, --c2 0.5s;
+    padding: 36px 20px;
+    transition: ease 200ms;
+}
+
+.Card p{
+    font-size: 32px;
+    color: white;
+    text-align: center;
+    word-wrap: break-word; 
+    max-width: 100%; 
+}
+
+.Card::before {
+  content: '';
+  position: absolute;
+  top: 17px;
+  left: 17px;
+  width: 37px;
+  height: 37px;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+}
+
+.Card::after {
+  content: '';
+  position: absolute;
+  bottom: 17px;
+  right: 17px;
+  width: 37px;
+  height: 37px;
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
 }
 
 .Card:hover{
-    --c1: #00ffa3;
-    --c2: #1a1a1a;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.Card:active{
+    margin-top: 170px;
+}
+
+.pilarInfoContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px
+}
+
+.pilarContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:25px;
+}
+
+.pilarContainer h1{
+    font-size: 40px;
+    font-weight: 400; 
 }

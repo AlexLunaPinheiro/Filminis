@@ -1,4 +1,4 @@
-a{
+.navItem{
     display: flex;
     text-decoration: none;
     color: #fff;
@@ -6,8 +6,12 @@ a{
     transition: ease-in 200ms;
 }
 
-a:hover{
+.navItem:hover{
     color: var(--cor-secundaria)
+}
+
+.navItem.active{
+    border-bottom: solid 1px #fff;
 }
 
 p{

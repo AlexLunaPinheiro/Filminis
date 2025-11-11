@@ -1,16 +1,55 @@
-import PageTemplate from '../../components/LoginPageTemplate';
-import RegistrationForm from '../../components/RegistrationForm';
+import styles from './AboutUs.module.css'
 import Navbar from '../../components/NavBar';
+import AboutUsHeroBackground from '../../components/AboutUsHeroBackground';
+import PilarsCard from '../../components/PilarsCard';
+import DevsCard from '../../components/DevsCard';
+import Roque from '../../assets/images/Vitor-Roque.jpg'
+import Negan from '../../assets/images/Negan.jpg'
+import Dava from '../../assets/images/Dava-Jonas.jpg'
+import Missao from '../../assets/icons/Acao.png'
+import Visao from '../../assets/icons/Visao.png'
+import Valores from '../../assets/icons/Valores.png'
 
-function RegistrationPage() {
+function AboutUs() {
   return (
-    <>
-      <Navbar />
-      <PageTemplate>
-        <RegistrationForm />
-      </PageTemplate>
-    </>
+    <div className={styles.AboutUsContainer}>
+      <header className={styles.aboutUsHeader}>
+        <Navbar/>
+      </header>
+
+      <main className={styles.aboutUsMain}>
+        <AboutUsHeroBackground/>
+        <p className={styles.description}>Oferecemos as informações de mais de 10 filmes em nosso catálogo, navegando entre gêneros como ação, terror, aventura, drama e muito mais</p>
+
+        <section className={styles.pilarsSection}>
+          <PilarsCard iconLink={Missao} title='Missão' text='Buscamos nos tornar referência no mercado nacional de wiki de filmes'/>
+          <PilarsCard iconLink={Visao} title='Visão' text='sdadasfyavfgavsdfgaysfasdasdasdasdasdasd'/>
+          <PilarsCard iconLink={Valores} title='Valores' text='sdadasfyavfgavsdfgaysf'/>
+        </section>
+
+        <div className={styles.aboutTitle}>
+          <h1>Nossos</h1>
+          <h1 className={styles.variant}>Desenvolvedores</h1>
+        </div>
+        
+
+        <section className={styles.devsSections}>
+          <DevsCard nome='Alex' imgPerfil={Roque} funcao='BackEnd' altText='Imagem do desenvolvedor'/>
+          <DevsCard nome='Luna' imgPerfil={Negan} funcao='UI/UX' altText='Imagem do desenvolvedor'/>
+          <DevsCard nome='Pinheiro' imgPerfil={Dava} funcao='FrontEnd' altText='Imagem do desenvolvedor'/>
+        </section>
+
+        <div className={styles.aboutTitle}>
+          <h1>Entre em</h1>
+          <h1 className={styles.variant}>Contato</h1>
+        </div>
+
+
+        
+      </main>
+
+    </div>
   );
 };
 
-export default RegistrationPage;
+export default AboutUs;

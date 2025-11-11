@@ -1,6 +1,6 @@
 //import DevsCard from "./components/DevsCard";
 //import PilarsCard from "./components/PilarsCard";
-//import RegistrationPage from './pages/RegistrationPage';
+//import LoginPage from './pages/LoginPage';
 //import Foto from "./assets/images/Vitor-Roque.jpg"
 //import AboutUsHeroBackground from "./components/AboutUsHeroBackground";
 //import MovieCategoryModal from "./components/MovieCategory";
@@ -26,10 +26,12 @@
 //import GenericInput from "./components/GenericInput";
 //import ButtonGeneric from "./components/ButtonGeneric";
 //import Chips from "./components/Chips";
-import Home from "./pages/Home";
+//import Home from "./pages/Home";
+//import AboutUs from "./pages/AboutUs";
+import AppRoutes from "./routes";
 
 function App() {
-  //return <RegistrationPage />;
+  //return <LoginPage />;
   //return <DevsCard nome={"Alex"} imgPerfil={Foto} funcao={"Dev Backend"} altText={"imagem do desenvolvedor"} />
   //return <AboutUsHeroBackground/>;
   //return <MovieCategoryModal title="HORROR" imageLink={Jason}/>
@@ -49,7 +51,14 @@ function App() {
   //return <GenericInput label="Titulo" placeholder="Digite o titulo do filme"/>
   //return <ButtonGeneric variant="login">cuzinho</ButtonGeneric>
   //return <Chips text="CU PRETO" variant="waiting"/>
-  return <Home/>
+  //return <Home/>
+  return (
+    <>
+      <AppRoutes/>
+    </>
+  )
+  
+  
 }
 
 export default App;

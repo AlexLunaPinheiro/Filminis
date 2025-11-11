@@ -70,35 +70,46 @@ function Home(){
     return(
         
         <div className={styles.homeContainer}>
-            <Navbar/>
+            <header className={styles.headerHome}>
+                 <Navbar/>
             
-            <HomeCarrossel 
-                key={filmeAtual.id}
-                imageLink={filmeAtual.imageLink}
-                titulo={filmeAtual.titulo}
-                ano={filmeAtual.ano}
-                genero={filmeAtual.genero}
-            />
+                <HomeCarrossel 
+                    key={filmeAtual.id}
+                    imageLink={filmeAtual.imageLink}
+                    titulo={filmeAtual.titulo}
+                    ano={filmeAtual.ano}
+                    genero={filmeAtual.genero}
+                />
 
-          
-            <NavigationId 
-                totalItems={mockFilmes.length}
-                currentIndex={currentIndex}
-            />
-
-            <CategorySlider/>
-            <div className={styles.topicContainer}>
-                <Topic text='O melhor da Ação'/>
-            </div>
             
-            <ActionMoviesSlider/>
+                <NavigationId 
+                    totalItems={mockFilmes.length}
+                    currentIndex={currentIndex}
+                />
 
-            <div className={styles.topicContainer}>
-                <Topic text='Aclamados pela crítica'/>
-            </div>
+            </header>
+           
+            <main className={styles.homeMain}>
+                <CategorySlider/>
+                <div className={styles.topicContainer}>
+                    <Topic text='O melhor da Ação'/>
+                </div>
+                
+                <ActionMoviesSlider/>
+
+                <div className={styles.topicContainer}>
+                    <Topic text='Aclamados pela crítica'/>
+                </div>
+                
+                <MoviesSlider/>
+
+                <div className={styles.topicContainer}>
+                    <Topic text='Em destaque'/>
+                </div>
+
+                <MoviesSlider/>
+            </main>
             
-            <MoviesSlider/>
-
         </div>
     )
 };

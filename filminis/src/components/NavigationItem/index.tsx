@@ -1,14 +1,14 @@
 import './NavigationItem.css';
 
 type NavigationItemProps = {
-    caminho: string,
     title: string,
     imagem: string,
+    active: string
 };
 
-function NavigationItem ({caminho, title, imagem}: NavigationItemProps){
+function NavigationItem ({title, imagem, active}: NavigationItemProps){
   return (
-    <a href={caminho}>
+    <a className={`navItem ${active}`}>
         <p>{title}</p>
         <figure>
             <img src={imagem} alt={`Icone da navbar ${title}`}></img>

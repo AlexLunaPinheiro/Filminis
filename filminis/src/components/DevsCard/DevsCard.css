@@ -1,6 +1,4 @@
 .card-dev{
-    margin-left: 20vw;
-    margin-top: 30vh;
     width: 308px;
     height: 393px;
     overflow: hidden;
@@ -15,7 +13,7 @@
 }
 
 .card-dev:hover{
-    margin-top:28vh;
+    margin-top: 10px;
     cursor: pointer;
 }
 

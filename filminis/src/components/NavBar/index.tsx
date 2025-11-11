@@ -1,4 +1,5 @@
 import './Navbar.css';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from '../../assets/icons/Logo.png';
 import HomeIcon from '../../assets/icons/Home.png';
 import SolicitacoesIcon from '../../assets/icons/Solicitacoes.png'
@@ -7,6 +8,8 @@ import Pesquisa from '../../assets/icons/Pesquisa.png'
 import NavigationItem from '../NavigationItem';
 
 function Navbar (){
+  const location = useLocation();
+
   return (
     <nav className="navbar">
       <figure>
@@ -16,34 +19,39 @@ function Navbar (){
       <ul className="nav-links">
         
         <li>
+          <Link to="/">
             <NavigationItem 
-                caminho="/home" 
                 title="HOME" 
                 imagem={HomeIcon} 
+                active={location.pathname === "/" ? "active" : ""}
             />
+          </Link>
+            
+        </li>
+
+        <li>
+          <NavigationItem 
+              title="SOLICITAÇÕES" 
+              imagem={SolicitacoesIcon} 
+              active={location.pathname === "/solicitacoes" ? "active" : ""}
+          />
+        </li>
+
+        <li>
+          <Link to="/about-us">
+              <NavigationItem 
+                  title="SOBRE NÓS" 
+                  imagem={SobreNos} 
+                  active={location.pathname === "/about-us" ? "active" : ""}
+              />
+            </Link>
         </li>
 
         <li>
             <NavigationItem 
-                caminho="/solicitacoes" 
-                title="SOLICITAÇÕES" 
-                imagem={SolicitacoesIcon} 
-            />
-        </li>
-
-        <li>
-            <NavigationItem 
-                caminho="/sobrenos" 
-                title="SOBRE NÓS" 
-                imagem={SobreNos} 
-            />
-        </li>
-
-        <li>
-            <NavigationItem 
-                caminho="/pesquisa" 
                 title="PESQUISA" 
                 imagem={Pesquisa} 
+                active={location.pathname === "/search" ? "active" : ""}
             />
         </li>
 
