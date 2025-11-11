@@ -1,0 +1,51 @@
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.label{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.input{
+    background-color: var(--cor-fundo-input-cinza);
+    color:#fff;
+    font-weight: 600;
+    border: solid 1px var(--cor-borda-de-input-cinza-escuro);
+    padding: 10px 30px 10px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 16px;
+    font-family: var(--fonte-primaria);
+    border-radius: 10px;
+    
+}
+
+.input:focus {
+  border: none;
+  color: #fff;
+  outline: none;
+  box-shadow: none;
+}
+
+/* placeholder aplicado corretamente ao input */
+.input::placeholder{
+  font-weight: 750;
+}
+
+.input.base{
+    width: 1270px;
+    height: 55px;
+}
+
+.input.textBox {
+  width: 1270px;
+  height: 257px;
+  resize: none;
+  padding: 20px 30px; 
+  line-height: 1.5;
+}

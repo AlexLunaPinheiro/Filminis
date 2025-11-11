@@ -4,30 +4,38 @@
     font-weight: 600;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     font-size: 16px;
     font-family: var(--fonte-primaria);
     margin: 0 auto;
-    margin-top: 20vh;
     padding: 10px 30px 10px 30px;
     border: solid 1px var(--cor-borda-de-input-cinza-escuro);
 }
 
+/* seletores mais específicos para o input dentro do container */
 .inputContainer input{
-    background-color: transparent;
-    border: none;
-    border-radius: 3px;
-    font-size: 16px;
+  background-color: transparent;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  outline: none;           /* remove outline padrão */
+  box-shadow: none;        /* remove sombras de foco (Chrome, etc) */
+  -webkit-appearance: none;
+  appearance: none;
 }
 
-.inputContainer :focus{
-    background-color: transparent;
-    border: none;
-    border-radius: 3px;
-    color: #fff;
+/* foco: garanta que não volte borda/outline/sombra */
+.inputContainer input:focus{
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  outline: none;
+  box-shadow: none;
 }
 
-.inputContainer ::placeholder{
-    font-weight: 600;
+/* placeholder aplicado corretamente ao input */
+.inputContainer input::placeholder{
+  font-weight: 600;
 }
 
 .inputContainer.full{

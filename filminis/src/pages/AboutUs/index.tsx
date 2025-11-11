@@ -3,6 +3,8 @@ import Navbar from '../../components/NavBar';
 import AboutUsHeroBackground from '../../components/AboutUsHeroBackground';
 import PilarsCard from '../../components/PilarsCard';
 import DevsCard from '../../components/DevsCard';
+import ContactInput from '../../components/ContactInput';
+
 import Roque from '../../assets/images/Vitor-Roque.jpg'
 import Negan from '../../assets/images/Negan.jpg'
 import Dava from '../../assets/images/Dava-Jonas.jpg'
@@ -42,7 +44,10 @@ function AboutUs() {
         <div className={styles.aboutTitle}>
           <h1>Entre em</h1>
           <h1 className={styles.variant}>Contato</h1>
-        </div>
+        </div>  
+
+        <ContactInput label="Seu nome completo:" placeholder='Digite seu nome completo' variant='base'/>
+        <ContactInput label="Mensagem:" placeholder='Digite sua mensagem' variant='textBox'/>
 
 
         
