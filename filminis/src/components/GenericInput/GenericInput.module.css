@@ -7,24 +7,21 @@
     justify-content: center;
     font-size: 16px;
     font-family: var(--fonte-primaria);
-    margin: 0 auto;
     padding: 10px 30px 10px 30px;
     border: solid 1px var(--cor-borda-de-input-cinza-escuro);
 }
 
-/* seletores mais específicos para o input dentro do container */
 .inputContainer input{
   background-color: transparent;
   border: none;
   border-radius: 3px;
   font-size: 16px;
-  outline: none;           /* remove outline padrão */
-  box-shadow: none;        /* remove sombras de foco (Chrome, etc) */
+  outline: none;           
+  box-shadow: none;      
   -webkit-appearance: none;
   appearance: none;
 }
 
-/* foco: garanta que não volte borda/outline/sombra */
 .inputContainer input:focus{
   background-color: transparent;
   border: none;
@@ -33,7 +30,6 @@
   box-shadow: none;
 }
 
-/* placeholder aplicado corretamente ao input */
 .inputContainer input::placeholder{
   font-weight: 600;
 }
@@ -48,6 +44,22 @@
     width: 765px;
     height: 55px;
     border-radius: 3px;
+}
+
+.inputContainer.min{
+  width: 623px;
+  height: 79px;
+  border-radius: 10px;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.inputContainer.min input::placeholder{
+  font-size: 20px;
+}
+
+.inputContainer.min input:focus{
+  font-size: 20px;
 }
 
 .inputContainer.textBox{

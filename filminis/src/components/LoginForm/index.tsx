@@ -1,32 +1,33 @@
 import React from 'react';
-import FormField from '../LoginFormField';
-import ButtonGroup from '../LoginButtonGroup';
-import Button from '../ButtonGeneric';
+import ButtonGeneric from '../ButtonGeneric';
+import GenericInput from '../GenericInput';
+import FormTitleIcon from '../FormTitleIcon';
 import Title from '../Title';
 import './RegistrationForm.css';
 
-function RegistrationForm(){
+function LoginForm(){
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     alert('Conta criada!');
   };
 
   return (
-    <form className="form-container" onSubmit={handleSubmit}>
-      <ButtonGroup />
-      <Title>Crie sua conta:</Title>
-      
-      <div className="input-row">
-        <FormField label="Nome:" type="text" placeholder="Digite seu nome" name="firstName" />
-        <FormField label="Sobrenome:" type="text" placeholder="Digite seu sobrenome" name="lastName" />
+    <form className="formContainer" onSubmit={handleSubmit}>
+      <div className='formTitleContainer'>
+        <FormTitleIcon text='Login' variant='min'/>
+        <Title>Faça seu login:</Title>
+      </div>
+
+      <div className='formInputsContainer'>
+        <GenericInput label="Username" placeholder='Digite seu nome de usuário' variant='min' type="text"></GenericInput>
+        <GenericInput label="Email" placeholder='Digite seu E-mail' variant='min' type="email"></GenericInput>
+        <GenericInput label="Senha" placeholder='Digite sua senha' variant='min' type="password"></GenericInput>
       </div>
       
-      <FormField label="Email:" type="email" placeholder="Digite seu e-mail" name="email" />
-      <FormField label="Telefone:" type="tel" placeholder="Digite seu telefone (**)" name="phone" />
-      
-      <Button type="submit">Crie sua conta</Button>
+        
+      <ButtonGeneric variant='login'>Entrar</ButtonGeneric>
     </form>
   );
 };
 
-export default RegistrationForm;
+export default LoginForm;

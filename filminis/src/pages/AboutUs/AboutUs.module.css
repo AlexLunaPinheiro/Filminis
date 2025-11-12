@@ -3,12 +3,13 @@
     flex-direction: column;
     font-family: var(--fonte-secundaria);
     background-image: url('../../assets/background/SOBRE-NOS-FUNDO.png');
+    background-size:cover;
 }
 
 .aboutUsMain{
     display: flex;
     flex-direction: column;
-     width: 100%;
+    width: 100%;
     padding: 94px 320px;
     align-items: center;
 }

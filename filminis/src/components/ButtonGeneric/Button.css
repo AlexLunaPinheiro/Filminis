@@ -26,6 +26,7 @@
     width: 623px;
     height: 79px;
     border-radius: 10px;
+    font-size: 24px;
 }
 
 .submit-button:hover {

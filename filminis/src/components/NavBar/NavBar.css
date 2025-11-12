@@ -13,6 +13,7 @@
   border-bottom: solid 1px #353535;
   z-index: 10; 
   gap: 3vw;
+  font-family: var(--fonte-primaria);
 }
 
 .logo {
@@ -24,4 +25,8 @@
   list-style: none;
   display: flex;
   gap: 100px;
+}
+
+a{
+  text-decoration: none;
 }

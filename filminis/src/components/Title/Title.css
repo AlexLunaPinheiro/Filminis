@@ -1,6 +1,5 @@
-.form-title {
+.formTitle {
   font-size: 2.5rem;
   color: #ffffff;
-  text-align: center;
-  margin-bottom: 40px;
+  font-family: var(--fonte-primaria);
 }

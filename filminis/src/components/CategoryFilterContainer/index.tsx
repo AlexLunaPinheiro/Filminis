@@ -1,9 +1,9 @@
 import CategoryFilterOption from "../CategoryFilterOption";
-import './CategoryFilterContainer.module.css'
+import styles from './CategoryFilterContainer.module.css'
 
 function CategoryFilterContainer (){
     return(
-        <article>
+        <article className={styles.filterContainer}>
             <CategoryFilterOption text="Comédia" id="1"/>
             <CategoryFilterOption text="Terror" id="2"/>
             <CategoryFilterOption text="Ficção Científca" id="3"/>

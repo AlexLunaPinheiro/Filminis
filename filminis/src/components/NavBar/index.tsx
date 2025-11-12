@@ -48,11 +48,24 @@ function Navbar (){
         </li>
 
         <li>
+          <Link to="/search">
             <NavigationItem 
                 title="PESQUISA" 
                 imagem={Pesquisa} 
                 active={location.pathname === "/search" ? "active" : ""}
             />
+          </Link>
+            
+        </li>
+
+        <li>
+          <Link to="/login">
+            <NavigationItem 
+              title="PERFIL" 
+              imagem={Pesquisa} 
+              active={location.pathname === "/login" ? "active" : ""}
+            />
+          </Link>
         </li>
 
       </ul>

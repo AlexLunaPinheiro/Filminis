@@ -6,7 +6,7 @@ interface TitleProps {
 }
 
 function Title ({ children }:TitleProps){
-  return <h1 className="form-title">{children}</h1>;
+  return <h1 className="formTitle">{children}</h1>;
 };
 
 export default Title;
