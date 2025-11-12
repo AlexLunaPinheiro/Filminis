@@ -4,6 +4,7 @@ import AboutUsHeroBackground from '../../components/AboutUsHeroBackground';
 import PilarsCard from '../../components/PilarsCard';
 import DevsCard from '../../components/DevsCard';
 import ContactInput from '../../components/ContactInput';
+import ButtonGeneric from '../../components/ButtonGeneric';
 
 import Roque from '../../assets/images/Vitor-Roque.jpg'
 import Negan from '../../assets/images/Negan.jpg'
@@ -49,6 +50,7 @@ function AboutUs() {
         <ContactInput label="Seu nome completo:" placeholder='Digite seu nome completo' variant='base'/>
         <ContactInput label="Mensagem:" placeholder='Digite sua mensagem' variant='textBox'/>
 
+        <ButtonGeneric variant='min'>Enviar Mensagem</ButtonGeneric>
 
         
       </main>
