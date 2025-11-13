@@ -71,7 +71,7 @@ function Home(){
         
         <div className={styles.homeContainer}>
             <header className={styles.headerHome}>
-                 <Navbar/>
+                 <Navbar variant='solid'/>
             
                 <HomeCarrossel 
                     key={filmeAtual.id}

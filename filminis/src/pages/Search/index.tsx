@@ -14,7 +14,7 @@ function Search(){
     return(
         <div className={styles.searchContainer}>
             <header>
-                <Navbar/>
+                <Navbar variant="solid"/>
             </header>
 
             <main className={styles.searchMain}>

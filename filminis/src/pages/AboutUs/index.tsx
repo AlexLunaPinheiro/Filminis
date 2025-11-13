@@ -17,7 +17,7 @@ function AboutUs() {
   return (
     <div className={styles.AboutUsContainer}>
       <header className={styles.aboutUsHeader}>
-        <Navbar/>
+        <Navbar variant='solid'/>
       </header>
 
       <main className={styles.aboutUsMain}>

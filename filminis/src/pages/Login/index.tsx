@@ -6,7 +6,7 @@ function LoginPage() {
   return (
     <div className={styles.loginContainer}>
       <header>
-        <Navbar />
+        <Navbar variant='solid'/>
       </header>
     <main className={styles.loginMain}> 
         <LoginForm />

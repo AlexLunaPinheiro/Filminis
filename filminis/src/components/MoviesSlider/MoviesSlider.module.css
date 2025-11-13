@@ -10,7 +10,9 @@
 
 .viewport {
     max-width: 1645px;
+    height: 350px;
     display: flex;
+    align-items: flex-end;
     gap: 64px;
     overflow-x: auto;
     scroll-behavior: smooth; 
@@ -42,9 +44,9 @@
 }
 
 .prevButton {
-    left: 15px; 
+    left: -80px; 
 }
 
 .nextButton {
-    right: 15px;
+    right: -80px;
 }

@@ -5,8 +5,6 @@
   padding: 15px 25px 15px 25px;
   top: 0;     
   width: 100%;
-  background: #12141A;
-  background: linear-gradient(120deg, rgba(18, 20, 26, 1) 0%, rgba(25, 37, 39, 1) 100%);
   opacity: 0.95;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px); 
@@ -14,6 +12,15 @@
   z-index: 10; 
   gap: 3vw;
   font-family: var(--fonte-primaria);
+}
+
+.navbar.transparent{
+  background: transparent;
+}
+
+.navbar.solid{
+  background: #12141A;
+  background: linear-gradient(120deg, rgba(18, 20, 26, 1) 0%, rgba(25, 37, 39, 1) 100%);
 }
 
 .logo {

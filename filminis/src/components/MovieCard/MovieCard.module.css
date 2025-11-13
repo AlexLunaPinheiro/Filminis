@@ -1,9 +1,14 @@
 .movieCard {
     width: 213px; 
     flex-shrink: 0; 
-
     background-color: transparent;
     font-family: var(--fonte-primaria); 
+    transition: ease 200ms;
+}
+
+.movieCard:hover{
+    cursor: pointer;
+    margin-bottom: 10px;
 }
 
 .movieCard figure {
@@ -27,8 +32,6 @@
     font-weight: 500;
     color: var(--cor-texto-principal); 
     margin: 0 0 5px 0;
-    
-    /* Evita quebra de linha feia */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -36,7 +39,7 @@
 
 .desc {
     display: flex;
-    gap: 15px; /* Espaço entre produtora e ano */
+    gap: 15px;
     font-size: 14px;
-    color: var(--cor-texto-cinza-claro); /* ou #AAA */
+    color: var(--cor-texto-cinza-claro);
 }

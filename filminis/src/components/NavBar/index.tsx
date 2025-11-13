@@ -2,16 +2,21 @@ import './Navbar.css';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from '../../assets/icons/Logo.png';
 import HomeIcon from '../../assets/icons/Home.png';
+import Filme from '../../assets/icons/Filmes.png'
 import SolicitacoesIcon from '../../assets/icons/Solicitacoes.png'
 import SobreNos from '../../assets/icons/Informacoes.png'
 import Pesquisa from '../../assets/icons/Pesquisa.png'
 import NavigationItem from '../NavigationItem';
 
-function Navbar (){
+type NavBarProps={
+  variant?: "transparent" | "solid";
+};
+
+function Navbar ({variant}: NavBarProps){
   const location = useLocation();
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${variant}`}>
       <figure>
         <img src={Logo} alt="Logo do site"></img>
       </figure>
@@ -53,6 +58,17 @@ function Navbar (){
                 title="PESQUISA" 
                 imagem={Pesquisa} 
                 active={location.pathname === "/search" ? "active" : ""}
+            />
+          </Link>
+            
+        </li>
+
+        <li>
+          <Link to="/movies">
+            <NavigationItem 
+                title="FILMES" 
+                imagem={Filme} 
+                active={location.pathname === "/movies" ? "active" : ""}
             />
           </Link>
             
