@@ -7,6 +7,7 @@ import SolicitacoesIcon from '../../assets/icons/Solicitacoes.png'
 import SobreNos from '../../assets/icons/Informacoes.png'
 import Pesquisa from '../../assets/icons/Pesquisa.png'
 import NavigationItem from '../NavigationItem';
+import UserIcon from '../UserIcon';
 
 type NavBarProps={
   variant?: "transparent" | "solid";
@@ -74,11 +75,11 @@ function Navbar ({variant}: NavBarProps){
             
         </li>
 
-        <li>
+        <li id="profile">
           <Link to="/login">
             <NavigationItem 
               title="PERFIL" 
-              imagem={Pesquisa} 
+              imagem={<UserIcon/>} 
               active={location.pathname === "/login" ? "active" : ""}
             />
           </Link>

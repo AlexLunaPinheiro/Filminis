@@ -5,20 +5,72 @@
 }
 
 .moviesHeader{
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background: url('../../assets/images/FILME-ESPECIFICO.png');
     background-size:cover;
     display: flex;
 }
 
+.sombras{
+    width: 100%;
+    height: 1461.37px;
+    background: url('../../assets/background/sombra.png');
+
+}
+
 .movieInfo{
     width: 100%;
     height: 100%;
     padding: 94px 146px;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
 }
+
 
 .movieInfo h1{
     font-size: 96px;
     max-width: 1065px;
 }
+
+.castContainer{
+    margin-top: 40px;
+    width: 100%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.castContainer h2{
+    font-size: 48px;
+}
+
+.cast{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    gap: 40px;
+}
+
+.movieMain{
+    height: 100%;
+    padding: 94px 146px;
+    display: flex;
+    flex-direction: column;
+    gap: 118px
+}
+
+.sinopse{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.sinopse p{
+    font-size: 40px;
+    font-weight: 400;
+}
+

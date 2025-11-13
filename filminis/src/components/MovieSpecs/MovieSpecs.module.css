@@ -1,4 +1,5 @@
 .specsText{
     font-size: 20px;
     color: var(--cor-texto-filme);
+    letter-spacing: 4px;
 }

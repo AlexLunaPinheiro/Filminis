@@ -3,10 +3,10 @@
     height: 304px;
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
-    margin-top: 20vh;
     position: relative;
     transition: ease 400ms;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .card:hover{

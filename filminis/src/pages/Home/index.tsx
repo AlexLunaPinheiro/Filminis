@@ -7,6 +7,7 @@ import CategorySlider from '../../components/CategorySlider';
 import Topic from '../../components/Topic';
 import ActionMoviesSlider from '../../components/ActionMoviesCardSlider';
 import MoviesSlider from '../../components/MoviesSlider';
+import Footer from '../../components/Footer';
 
 type Filme = {
     id: number;
@@ -109,6 +110,8 @@ function Home(){
 
                 <MoviesSlider/>
             </main>
+
+            <Footer/>
             
         </div>
     )

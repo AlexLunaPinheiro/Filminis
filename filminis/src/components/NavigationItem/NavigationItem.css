@@ -16,7 +16,7 @@
 .navItem.active::after {
   content: "";
   position: absolute;
-  bottom: -28px;
+  bottom: -10px;
   left: -15%;
   width: 120%;
   height: 2px;
