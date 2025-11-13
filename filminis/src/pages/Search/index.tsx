@@ -17,7 +17,7 @@ function Search(){
                 <Navbar/>
             </header>
 
-            <main>
+            <main className={styles.searchMain}>
                 <aside>
                     <FilterInput setSearchText={setSearchContent}/>
                     <div className={styles.filterButtonGroup}>

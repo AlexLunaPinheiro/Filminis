@@ -6,8 +6,8 @@
 }
 
 .homeContainer {
-  
     background: url('../../assets/background/FUNDO.png');
+    background-size: cover;
     min-height: 100vh; 
     width: 100%;
     display: flex;

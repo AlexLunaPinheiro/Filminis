@@ -1,27 +1,27 @@
-import styles from './HomeCarrosselInfo.module.css'
-import Seta from '../../assets/icons/Seta.png'
+  import styles from './HomeCarrosselInfo.module.css'
+  import Seta from '../../assets/icons/Seta.png'
 
-type HomeCarrosselInfoProps = {
-  ano: string;
-  titulo: string;
-  genero: string;
-};
+  type HomeCarrosselInfoProps = {
+    ano: string;
+    titulo: string;
+    genero: string;
+  };
 
-function HomeCarrosselInfo({ ano, titulo, genero}: HomeCarrosselInfoProps) {
-  return (
-        <article className={styles.CarrosselInfo}>
-            <div className={styles.CarrosselInfoContainer}>
-                <p>{titulo} ({ano})</p>
-                <p>{genero}</p>
-            </div>
+  function HomeCarrosselInfo({ ano, titulo, genero}: HomeCarrosselInfoProps) {
+    return (
+          <article className={styles.CarrosselInfo}>
+              <div className={styles.CarrosselInfoContainer}>
+                  <p>{titulo} ({ano})</p>
+                  <p>{genero}</p>
+              </div>
 
-            <a href=''>VER MAIS
-                <img src={Seta}></img>
-            </a>
+              <a href=''>VER MAIS
+                  <img src={Seta}></img>
+              </a>
 
-        </article>
-        
-  );
-}
+          </article>
+          
+    );
+  }
 
-export default HomeCarrosselInfo;
+  export default HomeCarrosselInfo;
