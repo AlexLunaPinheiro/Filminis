@@ -1,6 +1,6 @@
 .chips{
     width: 162px;
-    height: 48px;
+    height: 38px;
     border-radius: 50px;
     display: flex;
     align-items: center;
@@ -9,6 +9,11 @@
     font-weight: 600;
     font-family: var(--fonte-primaria);
     gap: 2px;
+}
+
+.chips p{
+    font-size: 16px;
+    font-weight: 700;
 }
 
 .chips img{
@@ -30,7 +35,7 @@
 }
 
 .chips.approved{
-    background-color: var(--cor-botao-verde);
+    background-color: var(--cor-chips-verde);
 }
 
 .chips.waiting{

@@ -32,7 +32,6 @@
   box-shadow: none;
 }
 
-/* placeholder aplicado corretamente ao input */
 .input::placeholder{
   font-weight: 750;
 }
@@ -49,3 +48,11 @@
   padding: 20px 30px; 
   line-height: 1.5;
 }
+
+.input.profile{
+  width: 577px;
+  height: 55px;
+  border-radius: 3px;
+}
+
+

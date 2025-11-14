@@ -1,5 +1,6 @@
 import CategoryFilterOption from "../CategoryFilterOption";
 import styles from './CategoryFilterContainer.module.css'
+import YearInput from "../YearInput";
 
 function CategoryFilterContainer (){
     return(
@@ -11,6 +12,7 @@ function CategoryFilterContainer (){
             <CategoryFilterOption text="Suspense" id="5"/>
             <CategoryFilterOption text="Ação" id="6"/>
             <CategoryFilterOption text="Infantil" id="7"/>
+            <YearInput/>
         </article>
     )
 }

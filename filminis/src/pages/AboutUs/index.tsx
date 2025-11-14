@@ -3,7 +3,7 @@ import Navbar from '../../components/NavBar';
 import AboutUsHeroBackground from '../../components/AboutUsHeroBackground';
 import PilarsCard from '../../components/PilarsCard';
 import DevsCard from '../../components/DevsCard';
-import ContactInput from '../../components/ContactInput';
+import SeparatedInput from '../../components/SeparatedInput';
 import ButtonGeneric from '../../components/ButtonGeneric';
 import Footer from '../../components/Footer';
 
@@ -48,8 +48,8 @@ function AboutUs() {
           <h1 className={styles.variant}>Contato</h1>
         </div>  
 
-        <ContactInput label="Seu nome completo:" placeholder='Digite seu nome completo' variant='base'/>
-        <ContactInput label="Mensagem:" placeholder='Digite sua mensagem' variant='textBox'/>
+        <SeparatedInput label="Seu nome completo:" placeholder='Digite seu nome completo' variant='base'/>
+        <SeparatedInput label="Mensagem:" placeholder='Digite sua mensagem' variant='textBox'/>
 
         <ButtonGeneric variant='min'>Enviar Mensagem</ButtonGeneric>
 

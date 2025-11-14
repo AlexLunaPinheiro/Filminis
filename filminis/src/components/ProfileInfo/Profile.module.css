@@ -16,4 +16,15 @@
 
 .profileForm{
     padding: 50px;
+    display: flex;
+    max-width: 1500px;
+    flex-wrap: wrap;
+    row-gap: 30px; 
+    justify-content: space-between;
+}
+
+.profileForm p{
+    max-width: 580px;
+    margin-top: 40px;
+    font-size: 16px;
 }

@@ -1,24 +1,15 @@
-import { useState } from 'react'; // 1. Importe o useState
+import { useState } from 'react'; 
 import styles from './Profile.module.css';
 import Navbar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import ProfileNavigation from '../../components/ProfileNavigation';
 import DataShowTemplate from '../../components/DataShowTemaplate';
 import ProfileInfo from '../../components/ProfileInfo';
+import UserRequests from '../../components/UserRequests';
 
 import Rodolfo from '../../assets/images/rodolfo.png'
 
-const InformacoesDoPerfil = () => (
-    <div style={{ padding: '20px', background: '#222', borderRadius: '8px' }}>
-        <h2>Formulário de Informações</h2>
-    </div>
-);
 
-const SolicitacoesDoUsuario = () => (
-    <div style={{ padding: '20px', background: '#222', borderRadius: '8px' }}>
-        <h2>Tabela de Solicitações</h2>
-    </div>
-);
 
 
 function Profile(){
@@ -39,7 +30,7 @@ function Profile(){
                 />
                 <DataShowTemplate>
                     {activeView === 'info' && <ProfileInfo />}
-                    {activeView === 'solicitacoes' && <SolicitacoesDoUsuario />}
+                    {activeView === 'solicitacoes' && <UserRequests />}
                 </DataShowTemplate>
                 
             </main>

@@ -1,12 +1,12 @@
-import styles from './ContactInput.module.css';
+import styles from './SeparatedInput.module.css';
 
-type ContactInputProps = {
+type SeparatedInputProps = {
   label: string;
   placeholder: string;
-  variant?: "base" | "textBox";
+  variant?: "base" | "textBox" | "profile" | "password";
 };
 
-function ContactInput({ label, placeholder, variant = "base" }: ContactInputProps) {
+function SeparatedInput({ label, placeholder, variant = "base" }: SeparatedInputProps) {
   return (
     <div className={styles.formContainer}>
       <label className={styles.label}>{label}</label>
@@ -27,4 +27,4 @@ function ContactInput({ label, placeholder, variant = "base" }: ContactInputProp
 }
 
 
-export default ContactInput;
+export default SeparatedInput;
