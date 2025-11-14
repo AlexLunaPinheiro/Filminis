@@ -5,6 +5,7 @@ import PilarsCard from '../../components/PilarsCard';
 import DevsCard from '../../components/DevsCard';
 import ContactInput from '../../components/ContactInput';
 import ButtonGeneric from '../../components/ButtonGeneric';
+import Footer from '../../components/Footer';
 
 import Roque from '../../assets/images/Vitor-Roque.jpg'
 import Negan from '../../assets/images/Negan.jpg'
@@ -55,6 +56,7 @@ function AboutUs() {
         
       </main>
 
+      <Footer variant='max'/>
     </div>
   );
 };

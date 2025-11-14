@@ -1,0 +1,19 @@
+.profileInfoContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.profileHeader{
+    height: 93px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    border-bottom:solid 1px var(--cor-borda-de-formulario-cinza-escuro);
+}
+
+.profileForm{
+    padding: 50px;
+}

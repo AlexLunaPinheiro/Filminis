@@ -111,7 +111,7 @@ function Home(){
                 <MoviesSlider/>
             </main>
 
-            <Footer/>
+            <Footer variant='max'/>
             
         </div>
     )

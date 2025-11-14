@@ -7,6 +7,7 @@ import Navbar from "../../components/NavBar";
 import Teste from "../../assets/images/Requiem-Para-Um-Sonho.png"
 import { useState } from "react";
 import styles from './SearchPage.module.css'
+import Footer from "../../components/Footer";
 
 function Search(){
     const [searchContent, setSearchContent] = useState("")
@@ -20,19 +21,42 @@ function Search(){
             <main className={styles.searchMain}>
                 <aside>
                     <FilterInput setSearchText={setSearchContent}/>
-                    <div className={styles.filterButtonGroup}>
-                        <ButtonFilter text="Diretor"/>
-                        <ButtonFilter text="Diretor"/>
-                        <ButtonFilter text="Diretor"/>
-                    </div>
                     <CategoryFilterContainer/>
                 </aside>
                 <section className={styles.searchResults}>
                     <SearchText text={searchContent}/>
-                    <MovieBanner imageLink={Teste}/>
+                    <div className={styles.resultGrid}>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                        <MovieBanner imageLink={Teste}/>
+                    </div>
+                    
                 </section>
                 
             </main>
+
+            <Footer variant="max"/>
             
         </div>
         

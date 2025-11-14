@@ -13,8 +13,14 @@ type NavBarProps={
   variant?: "transparent" | "solid";
 };
 
+
+const isUserLoggedIn = true; 
+
 function Navbar ({variant}: NavBarProps){
   const location = useLocation();
+
+
+  const isProfileActive = location.pathname === "/login" || location.pathname === "/profile";
 
   return (
     <nav className={`navbar ${variant}`}>
@@ -24,6 +30,7 @@ function Navbar ({variant}: NavBarProps){
 
       <ul className="nav-links">
         
+      
         <li>
           <Link to="/">
             <NavigationItem 
@@ -32,7 +39,6 @@ function Navbar ({variant}: NavBarProps){
                 active={location.pathname === "/" ? "active" : ""}
             />
           </Link>
-            
         </li>
 
         <li>
@@ -61,7 +67,6 @@ function Navbar ({variant}: NavBarProps){
                 active={location.pathname === "/search" ? "active" : ""}
             />
           </Link>
-            
         </li>
 
         <li>
@@ -72,23 +77,22 @@ function Navbar ({variant}: NavBarProps){
                 active={location.pathname === "/movies" ? "active" : ""}
             />
           </Link>
-            
         </li>
 
+  
         <li id="profile">
-          <Link to="/login">
+  
+          <Link to={isUserLoggedIn ? "/profile" : "/login"}>
             <NavigationItem 
               title="PERFIL" 
               imagem={<UserIcon/>} 
-              active={location.pathname === "/login" ? "active" : ""}
+              active={isProfileActive ? "active" : ""}
             />
           </Link>
         </li>
 
       </ul>
-
     </nav>
-
   );
 };
 

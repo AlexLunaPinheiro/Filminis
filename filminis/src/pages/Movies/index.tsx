@@ -7,6 +7,7 @@ import Navbar from '../../components/NavBar';
 import MovieSpecs from '../../components/MovieSpecs';
 import Kubrick from '../../assets/images/StanleyKubrick.png'
 import Ator from '../../assets/images/Ator.png'
+import Footer from '../../components/Footer';
 
 type MovieProps = {
     movieTitle?: string,
@@ -59,6 +60,8 @@ experiência da viagem uma loucura dos infernos.</p>
                     <MoviesSlider></MoviesSlider>
                 </section>
             </main>
+
+            <Footer variant='max'/>
         </div>
     )
 };

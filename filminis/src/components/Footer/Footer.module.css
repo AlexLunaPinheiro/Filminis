@@ -1,3 +1,53 @@
-footer{
-    
+.footer{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer.max{
+    background: url('../../assets/background/FUNDO-FOOTER.png');
+    background-size: cover ;
+    height: 342px;
+}
+
+.footer.min{
+    padding-bottom: 50px;
+}
+
+.footerNav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footerNav.max{
+    margin-top: 60px;
+  
+}
+
+.footerNav ul{
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style-type: none; 
+}
+
+.footerNav p{
+    font-weight: 200;
+    font-size: 24px;
+}
+.footerNav ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.socialMediaSection{
+    display: flex;
+    align-items: center;
+    gap:10px;
 }

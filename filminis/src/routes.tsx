@@ -5,6 +5,7 @@ import AboutUs from './pages/AboutUs';
 import LoginPage from './pages/Login';
 import Search from './pages/Search';
 import Movies from './pages/Movies';
+import Profile from './pages/Profile';
 
 function AppRoutes(){
     return(
@@ -14,6 +15,7 @@ function AppRoutes(){
             <Route path="/login" element={<LoginPage/>} />
             <Route path='/search' element={<Search/>} />
             <Route path='/movies' element={<Movies/>} />
+            <Route path='/profile' element={<Profile/>} />
         </Routes>
     )
 }

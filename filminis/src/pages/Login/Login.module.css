@@ -1,6 +1,7 @@
 .loginContainer{
     background-image: url('../../assets/background/LOGIN-FUNDO.png');
-    height: 100vh;
+    height: 100%;
+    font-family: var(--fonte-primaria);
 }
 
 .loginMain{
@@ -8,5 +9,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--fonte-primaria);
+    
 }
