@@ -15,11 +15,14 @@
     flex-shrink: 0; 
 }
 
+/* --- CORREÇÃO AQUI --- */
 .requestsTable{ 
+    /* 1. O PAI SÓ APLICA O PADDING. NADA DE SCROLL. */
     padding: 50px;
-    flex-grow: 1; 
-    overflow-y: auto; 
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin; 
-    scrollbar-color: var(--cor-borda-de-formulario-cinza-escuro) transparent; 
+
+    /* 2. REMOVA TUDO ABAIXO: */
+    /* flex-grow: 1;  <-- REMOVA */
+    /* overflow-y: auto; <-- REMOVA */
+    /* padding-left/right/bottom <-- REMOVA */
+    /* Todos os estilos ::-webkit-scrollbar <-- REMOVA */
 }

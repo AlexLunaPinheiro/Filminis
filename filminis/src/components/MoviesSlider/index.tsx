@@ -3,6 +3,8 @@ import styles from './MoviesSlider.module.css';
 import { mockAcclaimedMovies } from '../../services/data/acclaimedMovies';
 import MovieCard from '../MovieCard';
 
+import { Link } from 'react-router-dom';
+
 const ArrowLeft = () => <span>&lt;</span>;
 const ArrowRight = () => <span>&gt;</span>;
 
@@ -32,13 +34,16 @@ function MoviesSlider() {
             
             <div className={styles.viewport} ref={trackRef}>
                 {mockAcclaimedMovies.map((movie) => (
-                    <MovieCard
+                    <Link to='/movies'>
+                        <MovieCard
                         key={movie.id}
                         imageLink={movie.imageLink}
                         title={movie.title}
                         produtora={movie.produtora}
                         ano={movie.ano}
                     />
+                    </Link>
+                    
                 ))}
             </div>
 

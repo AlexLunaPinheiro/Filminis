@@ -1,35 +1,51 @@
-.table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    color: var(--cor-texto-principal-branco);
-    table-layout: fixed;
+.tableBorderWrapper {
     border: solid 1px var(--cor-borda-de-formulario-cinza-escuro);
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 10px;
+    overflow: hidden; 
+    
+}
+
+.tableScrollContainer {
+    max-height: 550px; 
+    overflow-y: auto; 
+    padding-right: 8px; 
+    scrollbar-width: thin; 
+    scrollbar-color: var(--cor-borda-de-formulario-cinza-escuro) transparent; 
+}
+
+.tableScrollContainer::-webkit-scrollbar {
+    width: 8px;
+}
+.tableScrollContainer::-webkit-scrollbar-track {
+    background: var(--cor-tercearia, #222); 
+}
+.tableScrollContainer::-webkit-scrollbar-thumb {
+    background-color: var(--cor-borda-de-formulario-cinza-escuro);
+    border-radius: 4px;
+}
+
+.table {
+    font-weight: 600;
+    width: 100%;
+    border-collapse: collapse; 
+    color: var(--cor-texto-principal-branco);
 }
 
 
 .th {
     padding: 20px; 
-    text-align: left;
     font-weight: 600;
-    background-color: var(--cor-borda-de-formulario-cinza-escuro);
     font-size: 14px;
     text-transform: uppercase;
     vertical-align: middle; 
-
+    position: sticky;
+    top: 0;
+    z-index: 1; 
+    background-color: var(--cor-borda-de-formulario-cinza-escuro);
 }
 
-.th:first-child {
-    border-top-left-radius: 10px;
-}
-
-.th:last-child {
-    border-top-right-radius: 10px;
-}
-
-.dataRow:last-child {
-    border-bottom: none;
+.dataRow {
+    background-color: var(--cor-tercearia, #222); 
 }
 
 .td {
@@ -39,15 +55,25 @@
     border-bottom: 1px solid var(--cor-borda-de-formulario-cinza-escuro);
 }
 
-.th:nth-child(1), .td:nth-child(1) {
-    width: 20%;
+.dataRow:last-child .td {
+    border-bottom: none;
 }
-.th:nth-child(2), .td:nth-child(2) {
-    width: 30%;
-}
+
+
+.th:nth-child(1), .td:nth-child(1),
+.th:nth-child(2), .td:nth-child(2),
 .th:nth-child(3), .td:nth-child(3) {
+    text-align: left;
     width: 25%;
 }
-.th:nth-child(4), .td:nth-child(4) {
+
+.th:nth-child(4) {
+    text-align: center;
     width: 25%;
+}
+
+.td:nth-child(4) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

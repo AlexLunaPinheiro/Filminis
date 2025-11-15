@@ -9,6 +9,8 @@ import ActionMoviesSlider from '../../components/ActionMoviesCardSlider';
 import MoviesSlider from '../../components/MoviesSlider';
 import Footer from '../../components/Footer';
 
+
+
 type Filme = {
     id: number;
     titulo: string;
