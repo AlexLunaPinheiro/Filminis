@@ -1,3 +1,5 @@
+import { useNavigate,  } from 'react-router-dom';
+
 import styles from './Movies.module.css';
 import CastCard from '../../components/CastCard';
 import DirectorCard from '../../components/DirectorCard';
@@ -8,6 +10,7 @@ import MovieSpecs from '../../components/MovieSpecs';
 import Kubrick from '../../assets/images/StanleyKubrick.png'
 import Ator from '../../assets/images/Ator.png'
 import Footer from '../../components/Footer';
+import ActionButton from '../../components/ActionButton';
 
 type MovieProps = {
     movieTitle?: string,
@@ -15,7 +18,14 @@ type MovieProps = {
 
 }
 
+
 function Movies({}: MovieProps){
+    const navigate = useNavigate();
+
+     const goToAddMovie = () => {
+        navigate("/solicitation");
+    };
+    
     return(
         <div className={styles.moviesContainer}>
             <header className={styles.moviesHeader}>
@@ -26,6 +36,11 @@ function Movies({}: MovieProps){
                         <h1>2001: uma odisseia no espaço</h1>
                         <MovieSpecs ano={1982} duracaoHoras={2} duracaoMinutos={22} 
                         generos={["Ficção cientifica", "Psicodélico"]} produtora='Warner Pictures'></MovieSpecs>
+                        <ActionButton 
+                            text='Editar filme +' 
+                            variant='create'
+                            onClick={goToAddMovie}
+                        />
 
                         
                         <div className={styles.castContainer}>

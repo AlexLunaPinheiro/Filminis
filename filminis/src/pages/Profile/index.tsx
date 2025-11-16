@@ -1,4 +1,6 @@
-import { useState } from 'react'; 
+import { useState , useEffect } from 'react'; 
+import { useLocation } from "react-router-dom";
+
 import styles from './Profile.module.css';
 import Navbar from '../../components/NavBar';
 import Footer from '../../components/Footer';
@@ -13,7 +15,17 @@ import Rodolfo from '../../assets/images/rodolfo.png'
 
 
 function Profile(){
+    const location = useLocation();
+    const stateView = location.state?.activeView;
+
     const [activeView, setActiveView] = useState<'info' | 'solicitacoes'>('info');
+
+    useEffect(() => {
+        if (stateView === 'solicitacoes') {
+            setActiveView('solicitacoes');
+        }
+    }, [stateView]);
+
 
     return(
         <div className={styles.profileContainer}>

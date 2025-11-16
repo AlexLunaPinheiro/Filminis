@@ -1,17 +1,21 @@
 import styles from './GenericInput.module.css';
+import React from 'react'; // Importe o React para os tipos
 
-type GenericInputProps = {
+// 1. Defina suas props *customizadas* separadamente
+type CustomInputProps = {
   label: string;
-  placeholder: string;
   variant?: "full" | "mid" | "min" | "textBox";
-  type: string
 };
 
-function GenericInput({ label, placeholder, variant = "mid", type }: GenericInputProps) {
+
+type GenericInputProps = CustomInputProps & React.InputHTMLAttributes<HTMLInputElement>;
+
+function GenericInput({ label, variant = "mid", ...rest }: GenericInputProps) {
   return (
     <div className={`${styles.inputContainer} ${styles[variant]}`}>
       <label>{label}</label>
-      <input type={type} placeholder={placeholder} />
+      
+      <input {...rest} />
     </div>
   );
 }

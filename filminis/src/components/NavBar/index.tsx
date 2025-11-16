@@ -1,5 +1,6 @@
 import './Navbar.css';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate} from 'react-router-dom';
+
 import Logo from '../../assets/icons/Logo.png';
 import HomeIcon from '../../assets/icons/Home.png';
 import Filme from '../../assets/icons/Filmes.png'
@@ -18,6 +19,13 @@ const isUserLoggedIn = true;
 
 function Navbar ({variant}: NavBarProps){
   const location = useLocation();
+  const navigate = useNavigate();
+
+   const goToSolicitacoes = () => {
+        navigate("/profile", {
+            state: { activeView: "solicitacoes" }
+        });
+    };
 
 
   const isProfileActive = location.pathname === "/login" || location.pathname === "/profile";
@@ -42,11 +50,16 @@ function Navbar ({variant}: NavBarProps){
         </li>
 
         <li>
-          <NavigationItem 
-              title="SOLICITAÇÕES" 
-              imagem={SolicitacoesIcon} 
-              active={location.pathname === "/solicitacoes" ? "active" : ""}
-          />
+          <Link 
+            to="/profile" 
+            state={{ activeView: "solicitacoes" }}
+          >
+            <NavigationItem
+                title="SOLICITAÇÕES"
+                imagem={SolicitacoesIcon}
+                active={location.pathname === "/profile" ? "active" : ""}
+            />
+          </Link>
         </li>
 
         <li>

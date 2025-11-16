@@ -8,7 +8,7 @@ type NavigationItemProps = {
 
 function NavigationItem ({title, imagem, active}: NavigationItemProps){
   return (
-    <a className={`navItem ${active}`}>
+    <div className={`navItem ${active}`}>
         <p>{title}</p>
         <figure>
           {typeof imagem === "string"?(
@@ -18,7 +18,7 @@ function NavigationItem ({title, imagem, active}: NavigationItemProps){
           }
             
         </figure>
-    </a>
+    </div>
 
   );
 };

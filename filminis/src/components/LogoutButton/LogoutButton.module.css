@@ -1,0 +1,20 @@
+.logoutButton{
+    width: 172px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    justify-content: space-between;
+    background: var(--cor-gradiente-botao-logout);
+    border: none;
+    border-radius: 3px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    transition: ease 200ms;
+}
+
+.logoutButton:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}

@@ -1,0 +1,66 @@
+.formRegistrationContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.inputsContainer{
+    margin-top: 40px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 48px;
+    row-gap: 30px;
+}
+
+.sinopseContainer {
+    grid-column: span 2; /* Ocupa as duas colunas */
+}
+
+/* --- ESTA É A SEÇÃO CORRIGIDA --- */
+
+.chipsContainer {
+    display: flex;
+    /* 1. REMOVIDO: flex-wrap: wrap; */
+    
+    /* 2. ADICIONADO: Força os chips a ficarem em linha */
+    flex-wrap: nowrap; 
+    
+    gap: 10px;
+    
+    /* 3. ADICIONADO: Cria o scroll horizontal */
+    overflow-x: auto; 
+    
+    /* 4. ADICIONADO: Alinha os chips no topo e dá espaço para o scroll */
+    align-content: flex-start;
+    padding-bottom: 10px; /* Espaço para a barra de scroll não "colar" */
+
+    /* --- ESTILOS DO SCROLLBAR (Como no Figma) --- */
+    
+    /* Firefox */
+    scrollbar-width: thin; 
+    scrollbar-color: var(--cor-borda-de-formulario-cinza-escuro) transparent; 
+}
+
+
+.chipsContainer::-webkit-scrollbar {
+    height: 8px; 
+}
+
+.chipsContainer::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+.chipsContainer::-webkit-scrollbar-thumb {
+    background-color: var(--cor-borda-de-formulario-cinza-escuro);
+    border-radius: 4px;
+}
+
+
+
+.submitButtonContainer {
+    width: 100%;
+    margin-top: 50px;
+    padding-top: 30px;
+}

@@ -3,14 +3,14 @@ import styles from './SeparatedInput.module.css';
 type SeparatedInputProps = {
   label: string;
   placeholder: string;
-  variant?: "base" | "textBox" | "profile" | "password";
+  variant?: "base" | "textBox" | "profile" | "password" | "solicitationText";
 };
 
 function SeparatedInput({ label, placeholder, variant = "base" }: SeparatedInputProps) {
   return (
     <div className={styles.formContainer}>
       <label className={styles.label}>{label}</label>
-      {variant === "textBox" ? (
+      {variant === "textBox" || "solicitationText" ? (
         <textarea
           className={`${styles.input} ${styles[variant]}`}
           placeholder={placeholder}

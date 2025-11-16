@@ -19,6 +19,7 @@
 
 .profileInfo img{
     width: 145px;
+    border-radius: 50%;
 }
 
 .profileInfo h2{
