@@ -15,30 +15,17 @@
 }
 
 .sinopseContainer {
-    grid-column: span 2; /* Ocupa as duas colunas */
+    grid-column: span 2; 
 }
 
-/* --- ESTA É A SEÇÃO CORRIGIDA --- */
 
 .chipsContainer {
     display: flex;
-    /* 1. REMOVIDO: flex-wrap: wrap; */
-    
-    /* 2. ADICIONADO: Força os chips a ficarem em linha */
     flex-wrap: nowrap; 
-    
     gap: 10px;
-    
-    /* 3. ADICIONADO: Cria o scroll horizontal */
     overflow-x: auto; 
-    
-    /* 4. ADICIONADO: Alinha os chips no topo e dá espaço para o scroll */
     align-content: flex-start;
-    padding-bottom: 10px; /* Espaço para a barra de scroll não "colar" */
-
-    /* --- ESTILOS DO SCROLLBAR (Como no Figma) --- */
-    
-    /* Firefox */
+    padding-bottom: 10px; 
     scrollbar-width: thin; 
     scrollbar-color: var(--cor-borda-de-formulario-cinza-escuro) transparent; 
 }

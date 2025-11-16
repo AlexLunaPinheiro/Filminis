@@ -19,17 +19,13 @@ function Footer({variant}:FooterProps){
 
                     <li>
                         <Link to="/about-us">
-                            <a>
                                 Sobre nós
-                            </a>
                         </Link>
                     </li>
 
                     <li>
                         <Link to="/about-us">
-                            <a>
                                 Contato
-                            </a>
                         </Link>
                     </li>
 

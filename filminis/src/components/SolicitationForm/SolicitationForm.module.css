@@ -1,6 +1,6 @@
 .solicitationForm{
     width: 1803px;
-    min-height: 1200px;
+    min-height: 1131px;
     background-color: var(--cor-tercearia);
     border-radius: 40px;
     border: solid 2px var(--cor-borda-de-formulario-cinza-escuro);

@@ -8,26 +8,27 @@ import ButtonGeneric from '../ButtonGeneric';
 
 // --- Tipos e Mockups do Backend ---
 type Person = { id: number; name: string; };
-
 const mockActorDB: Person[] = [
-    { id: 1, name: 'Nicolas Cage' },
-    { id: 2, name: 'Chris Pratt' },
-    { id: 3, name: 'Brad Pitt' },
+    { id: 1, name: 'Nicolas Cage' }, { id: 2, name: 'Chris Pratt' }, { id: 3, name: 'Brad Pitt' },
 ];
 const mockDirectorDB: Person[] = [
     { id: 101, name: 'Quentin Tarantino' },
 ];
-
-// Simula a verificação no DB
 const checkPersonInDB = async (name: string, db: Person[]): Promise<Person | null> => {
-    await new Promise(resolve => setTimeout(resolve, 300)); // Simula delay
+    await new Promise(resolve => setTimeout(resolve, 300));
     const found = db.find(person => person.name.toLowerCase() === name.toLowerCase());
     return found || null;
 };
 
-// --- Componente ---
+// --- 1. DEFINA AS NOVAS PROPS ---
+type FormRegistrationContainerProps = {
+    onPosterUrlChange: (url: string) => void;
+    onCapaUrlChange: (url: string) => void;
+}
 
-function FormRegistrationContainer() {
+// 2. RECEBA AS PROPS
+function FormRegistrationContainer({ onPosterUrlChange, onCapaUrlChange }: FormRegistrationContainerProps) {
+    
     // Estados do Formulário Principal
     const options = ['Angola', 'Brazil', 'Canadá', 'Dinamarca', 'Estados Unidos', 'Finlândia', 'Guiné'];
     const [nationality, setNationality] = useState<string | null>(null);
@@ -49,16 +50,21 @@ function FormRegistrationContainer() {
     const [newDirectorLastName, setNewDirectorLastName] = useState('');
     const [newDirectorGender, setNewDirectorGender] = useState<string | null>(null);
     const [newDirectorPhotoUrl, setNewDirectorPhotoUrl] = useState('');
+    
+    // --- 3. ESTADOS INTERNOS PARA OS INPUTS (Componentes Controlados) ---
+    const [titulo, setTitulo] = useState('');
+    const [orcamento, setOrcamento] = useState('');
+    const [tempoDuracao, setTempoDuracao] = useState('');
+    const [anoLancamento, setAnoLancamento] = useState('');
+    const [posterUrl, setPosterUrl] = useState('');
+    const [capaUrl, setCapaUrl] = useState('');
+    const [sinopse, setSinopse] = useState('');
 
-    /**
-     * Chamado ao pressionar Enter no input de ATOR
-     */
+    // ... (Suas funções handleCheckActor, handleCheckDirector, removeChip) ...
     const handleCheckActor = async (e: React.KeyboardEvent) => {
         if (e.key !== 'Enter' || !currentActorName) return;
-        
-        e.preventDefault(); // Impede o submit
+        e.preventDefault();
         const person = await checkPersonInDB(currentActorName, mockActorDB);
-
         if (person) {
             setAddedActors((current) => [...current, person]);
             setCurrentActorName('');
@@ -71,16 +77,10 @@ function FormRegistrationContainer() {
             setNewActorPhotoUrl('');
         }
     };
-
-    /**
-     * Chamado ao pressionar Enter no input de DIRETOR
-     */
     const handleCheckDirector = async (e: React.KeyboardEvent) => {
         if (e.key !== 'Enter' || !currentDirectorName) return;
-
         e.preventDefault();
         const person = await checkPersonInDB(currentDirectorName, mockDirectorDB);
-
         if (person) {
             setAddedDirectors((current) => [...current, person]);
             setCurrentDirectorName('');
@@ -93,8 +93,6 @@ function FormRegistrationContainer() {
             setNewDirectorPhotoUrl('');
         }
     };
-
-    // Função para remover um chip
     const removeChip = (id: number, type: 'ator' | 'diretor') => {
         if (type === 'ator') {
             setAddedActors(addedActors.filter(p => p.id !== id));
@@ -103,34 +101,79 @@ function FormRegistrationContainer() {
         }
     };
 
+    // --- 4. CRIE HANDLERS PARA ATUALIZAR O PAI ---
+    const handlePosterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newUrl = e.target.value;
+        setPosterUrl(newUrl);       // Atualiza o estado interno
+        onPosterUrlChange(newUrl);  // "Avisa" o pai (SolicitationForm)
+    };
+
+    const handleCapaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newUrl = e.target.value;
+        setCapaUrl(newUrl);         // Atualiza o estado interno
+        onCapaUrlChange(newUrl);    // "Avisa" o pai (SolicitationForm)
+    };
+
     return (
         <div className={styles.formRegistrationContainer}>
             <h1>Informações:</h1>
 
             <div className={styles.inputsContainer}>
 
-                {/* --- Linha 1 --- */}
-                <GenericInput label='Titulo:' placeholder='Digite o titulo do filme' variant='mid' type='text'/>
-                <GenericInput label='Orçamento:' placeholder='Digite o orçamento do filme' variant='mid' type='text'/>
+                {/* --- 5. CONECTE OS INPUTS --- */}
                 
-                {/* --- Linha 2 --- */}
-                <GenericInput label='Tempo de duração: ' placeholder='Digite o tempo de duração do filme' variant='mid' type='text'/>
-                <GenericInput label='Ano de lançamento:' placeholder='Digite o ano de lançamento:' variant='mid' type='text'/>
+                <GenericInput 
+                    label='Titulo:' 
+                    placeholder='Digite o titulo do filme' 
+                    variant='mid' type='text'
+                    value={titulo}
+                    onChange={(e) => setTitulo(e.target.value)}
+                />
+                <GenericInput 
+                    label='Orçamento:' 
+                    placeholder='Digite o orçamento do filme' 
+                    variant='mid' type='text'
+                    value={orcamento}
+                    onChange={(e) => setOrcamento(e.target.value)}
+                />
+                <GenericInput 
+                    label='Tempo de duração: ' 
+                    placeholder='Digite o tempo de duração do filme' 
+                    variant='mid' type='text'
+                    value={tempoDuracao}
+                    onChange={(e) => setTempoDuracao(e.target.value)}
+                />
+                <GenericInput 
+                    label='Ano de lançamento:' 
+                    placeholder='Digite o ano de lançamento:' 
+                    variant='mid' type='text'
+                    value={anoLancamento}
+                    onChange={(e) => setAnoLancamento(e.target.value)}
+                />
+                <GenericInput 
+                    label='URL do poster:' 
+                    placeholder='Digite a url do poster' 
+                    variant='mid' type='text'
+                    value={posterUrl}
+                    onChange={handlePosterChange}
+                />
+                <GenericInput 
+                    label='URL da capa:' 
+                    placeholder='Digite a url da capa' 
+                    variant='mid' type='text'
+                    value={capaUrl}
+                    onChange={handleCapaChange}
+                />
                 
-                {/* --- Linha 3 --- */}
-                <GenericInput label='URL do poster:' placeholder='Digite a url do poster' variant='mid' type='text'/>
-                <GenericInput label='URL da capa:' placeholder='Digite a url da capa' variant='mid' type='text'/>
-                
-                {/* --- Linha 4 (Sinopse) --- */}
                 <div className={styles.sinopseContainer}>
+                    {/* (Lembre-se de transformar SeparatedInput em um componente controlado também) */}
                     <SeparatedInput label="Sinopse:" placeholder='Digite a sinopse do filme' variant='solicitationText'/>
                 </div>
-
-                {/* --- Linha 5 --- */}
+                
                 <DropDownSelect label="Nacionalidade" value={nationality} options={options} onChange={setNationality}/>
                 <DropDownSelect label="Gênero" value={nationality} options={options} onChange={setNationality}/>
 
-                {/* --- Linha 6 (Atores) --- */}
+                {/* --- Seção de Atores --- */}
                 <GenericInput 
                     label='Atores:' 
                     placeholder='Digite o nome do ator e pressione Enter' 
@@ -145,45 +188,16 @@ function FormRegistrationContainer() {
                         <Chips key={actor.id} text={actor.name} variant='cast' onClick={() => removeChip(actor.id, 'ator')} />
                     ))}
                 </div>
-
-                {/* --- CORREÇÃO: SEÇÃO DINÂMICA (Novo Ator) --- */}
-                {/* Esta seção agora está logo abaixo da seção de Atores */ }
                 {showNewActorForm && (
                     <>
-                        <GenericInput 
-                            label='Nome (Ator):' 
-                            placeholder='Digite o nome' 
-                            variant='mid' 
-                            type='text'
-                            value={newActorName}
-                            onChange={(e) => setNewActorName(e.target.value)}
-                        />
-                        <GenericInput 
-                            label='Sobrenome (Ator):' 
-                            placeholder='Digite o sobrenome' 
-                            variant='mid' 
-                            type='text'
-                            value={newActorLastName}
-                            onChange={(e) => setNewActorLastName(e.target.value)}
-                        />
-                        <DropDownSelect 
-                            label="Gênero (Ator)" 
-                            value={newActorGender} 
-                            options={['Masculino', 'Feminino', 'Outro']}
-                            onChange={setNewActorGender}
-                        />
-                        <GenericInput 
-                            label='URL da foto (Ator):' 
-                            placeholder='Digite a url da foto' 
-                            variant='mid' 
-                            type='text'
-                            value={newActorPhotoUrl}
-                            onChange={(e) => setNewActorPhotoUrl(e.target.value)}
-                        />
+                        <GenericInput label='Nome (Ator):' placeholder='Digite o nome' variant='mid' type='text' value={newActorName} onChange={(e) => setNewActorName(e.target.value)} />
+                        <GenericInput label='Sobrenome (Ator):' placeholder='Digite o sobrenome' variant='mid' type='text' value={newActorLastName} onChange={(e) => setNewActorLastName(e.target.value)} />
+                        <DropDownSelect label="Gênero (Ator)" value={newActorGender} options={['Masculino', 'Feminino', 'Outro']} onChange={setNewActorGender} />
+                        <GenericInput label='URL da foto (Ator):' placeholder='Digite a url da foto' variant='mid' type='text' value={newActorPhotoUrl} onChange={(e) => setNewActorPhotoUrl(e.target.value)} />
                     </>
                 )}
 
-                {/* --- Linha 7 (Diretores) --- */}
+                {/* --- Seção de Diretores --- */}
                 <GenericInput 
                     label='Diretor:' 
                     placeholder='Digite o nome do diretor e pressione Enter' 
@@ -198,47 +212,17 @@ function FormRegistrationContainer() {
                         <Chips key={director.id} text={director.name} variant='cast' onClick={() => removeChip(director.id, 'diretor')} />
                     ))}
                 </div>
-
-                {/* --- CORREÇÃO: SEÇÃO DINÂMICA (Novo Diretor) --- */}
-                {/* Esta seção agora está logo abaixo da seção de Diretores */ }
                 {showNewDirectorForm && (
                     <>
-                        <GenericInput 
-                            label='Nome (Diretor):' 
-                            placeholder='Digite o nome' 
-                            variant='mid' 
-                            type='text'
-                            value={newDirectorName}
-                            onChange={(e) => setNewDirectorName(e.target.value)}
-                        />
-                        <GenericInput 
-                            label='Sobrenome (Diretor):' 
-                            placeholder='Digite o sobrenome' 
-                            variant='mid' 
-                            type='text'
-                            value={newDirectorLastName}
-                            onChange={(e) => setNewDirectorLastName(e.target.value)}
-                        />
-                        <DropDownSelect 
-                            label="Gênero (Diretor)" 
-                            value={newDirectorGender} 
-                            options={['Masculino', 'Feminino', 'Outro']}
-                            onChange={setNewDirectorGender}
-                        />
-                        <GenericInput 
-                            label='URL da foto (Diretor):' 
-                            placeholder='Digite a url da foto' 
-                            variant='mid' 
-                            type='text'
-                            value={newDirectorPhotoUrl}
-                            onChange={(e) => setNewDirectorPhotoUrl(e.target.value)}
-                        />
+                        <GenericInput label='Nome (Diretor):' placeholder='Digite o nome' variant='mid' type='text' value={newDirectorName} onChange={(e) => setNewDirectorName(e.target.value)} />
+                        <GenericInput label='Sobrenome (Diretor):' placeholder='Digite o sobrenome' variant='mid' type='text' value={newDirectorLastName} onChange={(e) => setNewDirectorLastName(e.target.value)} />
+                        <DropDownSelect label="Gênero (Diretor)" value={newDirectorGender} options={['Masculino', 'Feminino', 'Outro']} onChange={setNewDirectorGender} />
+                        <GenericInput label='URL da foto (Diretor):' placeholder='Digite a url da foto' variant='mid' type='text' value={newDirectorPhotoUrl} onChange={(e) => setNewDirectorPhotoUrl(e.target.value)} />
                     </>
                 )}
                 
             </div>
             
-            {/* Botão de Envio Principal */}
             <div className={styles.submitButtonContainer}>
                 <ButtonGeneric variant='max'>ENVIAR SOLICITAÇÃO DE CRIAÇÃO DO FILME</ButtonGeneric>
             </div>

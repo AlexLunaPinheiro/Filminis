@@ -2,7 +2,6 @@ import { useState } from 'react';
 import React from 'react'; 
 import styles from './FormTitleIcon.module.css';
 
-
 type ActiveView = 'form' | 'preview';
 
 type FormTitleIconProps = {
@@ -11,13 +10,11 @@ type FormTitleIconProps = {
     previewComponent: React.ReactNode; 
 }
 
-
 function FormTitleIcon({ formTitle, formComponent, previewComponent }: FormTitleIconProps) {
 
     const [activeView, setActiveView] = useState<ActiveView>('form');
 
     return (
-
         <>    
             <div className={styles.toggleContainer}>
                 
@@ -26,6 +23,7 @@ function FormTitleIcon({ formTitle, formComponent, previewComponent }: FormTitle
                 />
 
                 <button 
+                    type="button" 
                     onClick={() => setActiveView('form')}
                     className={`${styles.toggleButton} ${styles.formButton} ${activeView === 'form' ? styles.textActive : ''}`}
                 >
@@ -33,6 +31,7 @@ function FormTitleIcon({ formTitle, formComponent, previewComponent }: FormTitle
                 </button>
                 
                 <button 
+                    type="button" 
                     onClick={() => setActiveView('preview')}
                     className={`${styles.toggleButton} ${styles.previewButton} ${activeView === 'preview' ? styles.textActive : ''}`}
                 >

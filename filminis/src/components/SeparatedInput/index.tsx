@@ -4,13 +4,21 @@ type SeparatedInputProps = {
   label: string;
   placeholder: string;
   variant?: "base" | "textBox" | "profile" | "password" | "solicitationText";
+  type?: string; // 1. Adicione a prop 'type'
 };
 
-function SeparatedInput({ label, placeholder, variant = "base" }: SeparatedInputProps) {
+function SeparatedInput({ 
+  label, 
+  placeholder, 
+  variant = "base", 
+  type = "text" // 2. Receba 'type' (com "text" como padrão)
+}: SeparatedInputProps) {
+  
   return (
     <div className={styles.formContainer}>
       <label className={styles.label}>{label}</label>
-      {variant === "textBox" || "solicitationText" ? (
+      
+      {variant === "textBox" || variant === "solicitationText" ? (
         <textarea
           className={`${styles.input} ${styles[variant]}`}
           placeholder={placeholder}
@@ -18,13 +26,12 @@ function SeparatedInput({ label, placeholder, variant = "base" }: SeparatedInput
       ) : (
         <input
           className={`${styles.input} ${styles[variant]}`}
-          type="text"
+          type={type} 
           placeholder={placeholder}
         />
       )}
     </div>
   );
 }
-
 
 export default SeparatedInput;
