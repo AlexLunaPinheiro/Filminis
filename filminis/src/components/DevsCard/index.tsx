@@ -15,7 +15,7 @@ function DevsCard({nome, imgPerfil, funcao, altText}: DevsCardProps){
             <div className='container-nome'>
                 <p>{nome}</p>
                 <figure>
-                    <img src={Github}></img>
+                    <img src={Github} alt='icone do github'></img>
                 </figure>
             </div>
             <figure>    

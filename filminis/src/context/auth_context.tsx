@@ -3,12 +3,13 @@ import type { ReactNode } from 'react';
 import * as authApi from '../services/interceptors/apiClient'; 
 
 // O tipo de dado que o Context vai fornecer
-// CORREÇÃO: Remova 'sobrenome' e 'email'.
 type User = { id: number; nome: string; role: string };
 
+// 1. ADICIONE isLoading AO TIPO
 type AuthContextType = {
   isLoggedIn: boolean;
   user: User | null;
+  isLoading: boolean; // <-- ADICIONE ISTO
   login: (userData: User, token: string) => void;
   logout: () => void;
 };
@@ -20,17 +21,23 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // 2. ADICIONE O ESTADO DE LOADING
+  const [isLoading, setIsLoading] = useState(true); // <-- Começa como true
 
-  // Na primeira vez que o App carrega, verifique o localStorage
+ 
   useEffect(() => {
-    const token = authApi.getAuthToken();
-    const userInfo = authApi.getUserInfo();
-    if (token && userInfo) {
-      // Agora 'userInfo' (que é {id, nome, role})
-      // bate com o tipo 'User', e o erro desaparece.
-      setUser(userInfo); 
-      setIsLoggedIn(true);
-    }
+    // Simula uma pequena espera para garantir que tudo carregue (opcional mas bom)
+    setTimeout(() => {
+        const token = authApi.getAuthToken();
+        const userInfo = authApi.getUserInfo();
+        
+        if (token && userInfo) {
+            setUser(userInfo); 
+            setIsLoggedIn(true);
+        }
+        // 3. TERMINE O LOADING (mesmo se não houver usuário)
+        setIsLoading(false); // <-- ADICIONE ISTO
+    }, 500); // 500ms de "loading"
   }, []);
 
   const login = (userData: User, token: string) => {
@@ -48,7 +55,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, user, login, logout }}>
+    // 4. FORNEÇA o isLoading
+    <AuthContext.Provider value={{ isLoggedIn, user, login, logout, isLoading }}>
       {children}
     </AuthContext.Provider>
   );

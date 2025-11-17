@@ -108,3 +108,11 @@
 .td:nth-child(5) {
     width: 100%;
 }
+
+.emptyMessageContainer {
+    padding: 40px 50px; /* Usa o mesmo padding do header */
+    text-align: center;
+    color: var(--cor-texto-cinza-claro);
+    font-family: var(--fonte-primaria);
+    font-size: 16px;
+}

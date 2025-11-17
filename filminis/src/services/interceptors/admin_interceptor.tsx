@@ -1,6 +1,6 @@
 import { apiRequest } from './apiClient';
 
-// (Tipos para os dados do dashboard, baseados no seu service)
+// (Seus tipos StatsDashboard e SolicitacaoAdmin estão aqui...)
 export type StatsDashboard = {
     edicao: number;
     criacao: number;
@@ -11,34 +11,37 @@ export type StatsDashboard = {
 export type SolicitacaoAdmin = {
     id: number;
     data_solicitacao: string;
-    filme: string; // (Assumindo que o repo já trata isso)
+    filme: string; 
     tipo: 'ADICAO' | 'EDICAO';
-    usuario_nome: string; // (Assumindo que o repo já trata isso)
+    usuario_nome: string; 
     status: string;
 };
 
-/**
- * (Admin) Busca as estatísticas do dashboard.
- * Requer token de Admin.
- */
+
 export async function getAdminDashboardStats(): Promise<StatsDashboard> {
   return apiRequest('/admin/relatorio');
 }
 
-/**
- * (Admin) Busca todas as solicitações em aberto.
- * Requer token de Admin.
- */
 export async function getAdminSolicitacoes(): Promise<SolicitacaoAdmin[]> {
   return apiRequest('/admin/solicitacoes');
 }
 
-/**
- * (Admin) Deleta um filme permanentemente pelo ID.
- * Requer token de Admin.
- */
 export async function deleteFilmeById(id: string | number): Promise<{ message: string }> {
   return apiRequest(`/admin/filmes/${id}`, {
     method: 'DELETE',
+  });
+}
+
+// --- ADICIONE ISTO ---
+
+type AcaoReview = 'APROVAR' | 'REJEITAR';
+
+/**
+ * (Admin) Aprova ou Rejeita uma solicitação pelo ID.
+ */
+export async function reviewSolicitacao(id: number, acao: AcaoReview): Promise<{ message: string }> {
+  return apiRequest(`/admin/solicitacoes/${id}/review`, {
+    method: 'POST',
+    body: JSON.stringify({ acao }), // Envia a ação no corpo
   });
 }

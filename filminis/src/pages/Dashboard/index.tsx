@@ -1,37 +1,79 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/auth_context';
 import { useNavigate } from 'react-router-dom';
 import styles from './Dashboard.module.css';
 import Navbar from '../../components/NavBar';
 import Footer from '../../components/Footer';
-
-// 1. IMPORTE OS NOVOS COMPONENTES
 import AdminStatsCard from '../../components/AdminStatsCard';
 import AdminRequestTable from '../../components/AdminRequestTable';
 
+import { 
+    getAdminDashboardStats, 
+    getAdminSolicitacoes 
+} from '../../services/interceptors/admin_interceptor';
+import type { 
+    StatsDashboard, 
+    SolicitacaoAdmin 
+} from '../../services/interceptors/admin_interceptor';
+
+
 function Dashboard() {
-    const { user, isLoggedIn } = useAuth();
+    const { user, isLoggedIn, isLoading } = useAuth(); // (isLoading do F5)
     const navigate = useNavigate();
 
-    // 2. Mock data para os Stats (vamos conectar ao backend depois)
-    const stats = {
-        edicao: 55,
-        criacao: 32,
-        cadastrados: 32,
-        aberto: 87
+    const [stats, setStats] = useState<StatsDashboard | null>(null);
+    const [loadingStats, setLoadingStats] = useState(true);
+
+    const [requests, setRequests] = useState<SolicitacaoAdmin[]>([]);
+    const [loadingRequests, setLoadingRequests] = useState(true);
+
+    // 1. Extraia a função 'loadRequests' para fora do useEffect
+    const loadRequests = async () => {
+        try {
+            setLoadingRequests(true);
+            const data = await getAdminSolicitacoes();
+            setRequests(data);
+        } catch (error) {
+            console.error("Erro ao buscar solicitações:", error);
+        } finally {
+            setLoadingRequests(false);
+        }
     };
 
-    // Proteção da Rota: Se não for admin, volta para a Home
-    React.useEffect(() => {
+    // Proteção da Rota (Já estava correta)
+    useEffect(() => {
+        if (isLoading) return; // Espera o AuthContext
+        
         if (!isLoggedIn) {
              navigate('/login');
         } else if (user && user.role !== 'ADMIN') {
-            navigate('/'); // Redireciona usuários comuns para a Home
+            navigate('/'); 
         }
-    }, [user, isLoggedIn, navigate]);
+    }, [user, isLoggedIn, isLoading, navigate]);
 
-    // Se ainda estiver carregando ou se não for admin
-    if (!user || user.role !== 'ADMIN') {
+    // useEffect para buscar os dados (só no mount)
+    useEffect(() => {
+        if (isLoggedIn && user?.role === 'ADMIN') {
+            
+            async function loadStats() {
+                try {
+                    setLoadingStats(true);
+                    const data = await getAdminDashboardStats();
+                    setStats(data);
+                } catch (error) {
+                    console.error("Erro ao buscar estatísticas:", error);
+                } finally {
+                    setLoadingStats(false);
+                }
+            }
+            
+            loadStats();
+            loadRequests(); // 2. Chama as duas
+        }
+    }, [isLoggedIn, user]); // (Não inclua 'loadRequests' aqui)
+
+    // (Seu render de loading/acesso negado)
+    if (isLoading || !user) {
         return (
             <div className={styles.dashboardContainer}>
                 <Navbar variant="solid" />
@@ -43,7 +85,6 @@ function Dashboard() {
         );
     }
 
-    // Se for Admin
     return (
         <div className={styles.dashboardContainer}>
             <Navbar variant="solid" /> 
@@ -51,14 +92,31 @@ function Dashboard() {
             <main className={styles.dashboardMain}>
                 
                 <div className={styles.statsGrid}>
-                   <AdminStatsCard title="Solicitações de edição" count={stats.edicao} />
-                   <AdminStatsCard title="Solicitações de criação" count={stats.criacao} />
-                   <AdminStatsCard title="Filmes cadastrados" count={stats.cadastrados} />
-                   <AdminStatsCard title="Solicitações em aberto" count={stats.aberto} />
+                   {/* (Seus AdminStatsCards estão aqui) */}
+                   <AdminStatsCard 
+                        title="Solicitações de edição" 
+                        count={loadingStats ? '...' : (stats?.edicao ?? 0)} 
+                    />
+                   <AdminStatsCard 
+                        title="Solicitações de criação" 
+                        count={loadingStats ? '...' : (stats?.criacao ?? 0)} 
+                    />
+                   <AdminStatsCard 
+                        title="Filmes cadastrados" 
+                        count={loadingStats ? '...' : (stats?.cadastrados ?? 0)} 
+                    />
+                   <AdminStatsCard 
+                        title="Solicitações em aberto" 
+                        count={loadingStats ? '...' : (stats?.aberto ?? 0)} 
+                    />
                 </div>
 
                 <section className={styles.requestSection}>
-                    <AdminRequestTable />
+                    <AdminRequestTable 
+                        requests={requests}
+                        loading={loadingRequests}
+                        onRefresh={loadRequests} // 3. Passe a função de refresh
+                    />
                 </section>
 
             </main>

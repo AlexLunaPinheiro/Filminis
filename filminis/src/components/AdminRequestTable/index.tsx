@@ -1,28 +1,42 @@
 import { Link } from 'react-router-dom';
 import styles from './AdminRequestTable.module.css';
 import ActionButton from '../ActionButton';
+import type { SolicitacaoAdmin } from '../../services/interceptors/admin_interceptor';
+import { useState } from 'react';
+import { reviewSolicitacao } from '../../services/interceptors/admin_interceptor';
 
-// Mock data (para visualização)
-const mockRequests = [
-    { id: 1, data: '27/11/2006', filme: 'A origem', tipo: 'Edição', usuario: 'Alex Pinheiro' },
-    { id: 2, data: '27/11/2006', filme: 'A origem', tipo: 'Edição', usuario: 'Alex Pinheiro' },
-    { id: 3, data: '27/11/2006', filme: 'A origem', tipo: 'Edição', usuario: 'Alex Pinheiro' },
-    { id: 4, data: '27/11/2006', filme: 'A origem', tipo: 'Edição', usuario: 'Alex Pinheiro' },
-    { id: 5, data: '27/11/2006', filme: 'A origem', tipo: 'Edição', usuario: 'Alex Pinheiro' },
-    { id: 6, data: '27/11/2006', filme: 'A origem', tipo: 'Edição', usuario: 'Alex Pinheiro' },
-    { id: 7, data: '27/11/2006', filme: 'A origem', tipo: 'Edição', usuario: 'Alex Pinheiro' },
-     { id: 4, data: '27/11/2006', filme: 'A origem', tipo: 'Edição', usuario: 'Alex Pinheiro' },
-    { id: 5, data: '27/11/2006', filme: 'A origem', tipo: 'Edição', usuario: 'Alex Pinheiro' },
-    { id: 6, data: '27/11/2006', filme: 'A origem', tipo: 'Edição', usuario: 'Alex Pinheiro' },
-    { id: 7, data: '27/11/2006', filme: 'A origem', tipo: 'Edição', usuario: 'Alex Pinheiro' },
-];
+type AdminRequestTableProps = {
+    requests: SolicitacaoAdmin[];
+    loading: boolean;
+    onRefresh: () => void; 
+}
 
-function AdminRequestTable() {
+function AdminRequestTable({ requests, loading, onRefresh }: AdminRequestTableProps) {
     
-    const requests = mockRequests; 
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    // O 'loading' principal ainda pode ficar aqui,
+    // pois a tabela inteira está carregando.
+    if (loading) {
+        return <p>Carregando solicitações...</p>;
+    }
+
+    // REMOVEMOS A VERIFICAÇÃO DE (requests.length === 0) DAQUI
+
+    const handleReview = async (id: number, acao: 'APROVAR' | 'REJEITAR') => {
+        setIsSubmitting(true);
+        try {
+            await reviewSolicitacao(id, acao);
+            onRefresh(); 
+        } catch (error: any) {
+            alert(`Erro ao processar solicitação: ${error.message}`);
+        } finally {
+            setIsSubmitting(false); 
+        }
+    };
 
     return (
-        // (Este é o wrapper que você já tinha, com a borda)
+        // 1. O container e o header agora SEMPRE serão renderizados
         <div className={styles.tableContainer}> 
             <div className={styles.tableHeader}>
                 <h2>Registro de solicitações:</h2>
@@ -31,35 +45,52 @@ function AdminRequestTable() {
                 </Link>
             </div>
 
-            <div className={styles.tableScrollContainer}>
-                <table className={styles.table}>
-                    <thead>
-                        
-                        <tr className={styles.headRow}> 
-                            <th className={styles.th}>Data</th>
-                            <th className={styles.th}>Filme</th>
-                            <th className={styles.th}>Tipo</th>
-                            <th className={styles.th}>Usuário</th>
-                            <th className={styles.th}>Ação</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {requests.map(item => (
-                            // 3. MUDE A <tr> PARA USAR A CLASSE dataRow
-                            <tr key={item.id} className={styles.dataRow}> 
-                                <td className={styles.td}>{item.data}</td>
-                                <td className={styles.td}>{item.filme}</td>
-                                <td className={styles.td}>{item.tipo}</td>
-                                <td className={styles.td}>{item.usuario}</td>
-                                <td className={`${styles.td} ${styles.actionButtons}`}>
-                                    <ActionButton text='Aprovar' variant='create'></ActionButton>
-                                    <ActionButton text='Desaprovar' variant='delete'></ActionButton>
-                                </td>
+            {/* 2. A lógica condicional vai AQUI DENTRO */}
+            {requests.length > 0 ? (
+                // Se houver solicitações, mostre a tabela
+                <div className={styles.tableScrollContainer}>
+                    <table className={styles.table}>
+                        <thead>
+                            <tr className={styles.headRow}> 
+                                <th className={styles.th}>Data</th>
+                                <th className={styles.th}>Filme</th>
+                                <th className={styles.th}>Tipo</th>
+                                <th className={styles.th}>Usuário</th>
+                                <th className={styles.th}>Ação</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div> {/* 4. FECHE O WRAPPER DE SCROLL */}
+                        </thead>
+                        <tbody>
+                            {requests.map(item => (
+                                <tr key={item.id} className={styles.dataRow}> 
+                                    <td className={styles.td}>{new Date(item.data_solicitacao).toLocaleDateString()}</td>
+                                    <td className={styles.td}>{item.filme}</td>
+                                    <td className={styles.td}>{item.tipo}</td>
+                                    <td className={styles.td}>{item.usuario_nome}</td>
+                                    <td className={`${styles.td} ${styles.actionButtons}`}>
+                                        <ActionButton 
+                                            text='Aprovar' 
+                                            variant='create'
+                                            onClick={() => handleReview(item.id, 'APROVAR')}
+                                            disabled={isSubmitting}
+                                        />
+                                        <ActionButton 
+                                            text='Desaprovar' 
+                                            variant='delete'
+                                            onClick={() => handleReview(item.id, 'REJEITAR')}
+                                            disabled={isSubmitting}
+                                        />
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            ) : (
+                // Se NÃO houver solicitações, mostre a mensagem
+                <div className={styles.emptyMessageContainer}>
+                    <p>Nenhuma solicitação pendente encontrada.</p>
+                </div>
+            )}
         </div>
     );
 }
