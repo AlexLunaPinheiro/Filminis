@@ -8,115 +8,155 @@ import Topic from '../../components/Topic';
 import ActionMoviesSlider from '../../components/ActionMoviesCardSlider';
 import MoviesSlider from '../../components/MoviesSlider';
 import Footer from '../../components/Footer';
+import ButtonHome from '../../components/ButtonHome';
+
+import { Link } from 'react-router-dom';
+import { useAuth } from '../../context/auth_context';
 
 
+import Magu from '../../assets/icons/Logo.png'; 
 
-type Filme = {
-    id: number;
-    titulo: string;
-    ano: string;
-    genero: string;
-    imageLink: string;
-};
 
-const mockFilmes: Filme[] = [
-    {
-        id: 1,
-        titulo: "A Origem",
-        ano: "2010",
-        genero: "Ficção Científica",
-        imageLink: "https://ovicio.com.br/wp-content/uploads/2020/08/20200802-filme-a-origem.jpg" 
-    },
-    {
-        id: 2,
-        titulo: "O Poderoso Chefão",
-        ano: "1972",
-        genero: "Drama",
-        imageLink: "https://s2-oglobo.glbimg.com/K6Ib9lWtn49SUOLEz11SdDVIuu0=/0x0:1200x675/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2024/N/y/ScyTWUQdyaRivNlc1WYQ/poderoso.jpg" 
-    },
-    {
-        id: 3,
-        titulo: "Batman: O Cavaleiro das Trevas",
-        ano: "2008",
-        genero: "Ação",
-        imageLink: "https://i.pinimg.com/1200x/d1/a5/bf/d1a5bf094a379e426e55d5a8802041ea.jpg" 
-    },
-    {
-        id: 4,
-        titulo: "Pulp Fiction",
-        ano: "1994",
-        genero: "Crime",
-        imageLink: "https://i.pinimg.com/1200x/e6/96/52/e69652706b0b5f2193f5e6048f365c91.jpg" 
-    }
-];
+import { getAllFilmes } from '../../services/interceptors/movie_interceptor'; 
+import type { FilmeListado } from '../../services/interceptors/movie_interceptor'; 
 
 
 const TEMPO_DE_SLIDE = 5000; 
 
 function Home(){
-  
-    const [currentIndex, setCurrentIndex] = useState(0);
+  const [filmes, setFilmes] = useState<FilmeListado[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const { isLoggedIn } = useAuth();
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % mockFilmes.length);
-        }, TEMPO_DE_SLIDE);
+  useEffect(() => {
+    async function loadFilmes() {
+      try {
+        const data = await getAllFilmes();
+        setFilmes(data.filter(f => f.url_capa).slice(0, 4)); 
+      } catch (error) {
+        console.error("Erro ao buscar filmes:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadFilmes();
+  }, []); 
 
-      
-        return () => clearInterval(timer);
+  useEffect(() => {
+    if (filmes.length === 0) return; 
 
-    }, []); 
+    const timer = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % filmes.length);
+    }, TEMPO_DE_SLIDE);
 
- 
-    const filmeAtual = mockFilmes[currentIndex];
+    return () => clearInterval(timer);
+  }, [filmes, filmes.length]);
 
-    return(
+  if (loading) {
+    return (
+      <div className={styles.homeContainer}>
+        <header className={styles.headerHome}>
+          <Navbar variant='solid'/>
+          <div style={{height: '508px', marginTop: '10vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <p>Carregando filmes...</p>
+          </div>
+        </header>
+      </div>
+    );
+  }
+
+  if (filmes.length === 0) {
+    return (
+      <div className={styles.homeContainer}>
+        <header className={styles.headerHome}>
+          <Navbar variant='solid'/>
+          <div>
+            <p>Nenhum filme encontrado no catálogo.</p>
+          </div>
+        </header>
+      </div>
+    );   
+  }
+
+  const filmeAtual = filmes[currentIndex];
+
+  return(
+    <div className={styles.homeContainer}>
+        <header className={styles.headerHome}>
+             <Navbar variant='solid'/>
         
-        <div className={styles.homeContainer}>
-            <header className={styles.headerHome}>
-                 <Navbar variant='solid'/>
+            <HomeCarrossel 
+                key={filmeAtual.id}
+                filmeId={filmeAtual.id}
+                imageLink={filmeAtual.url_capa}
+                titulo={filmeAtual.titulo}
+                ano={String(filmeAtual.ano_lancamento)}
+                genero={"Filme"} 
+            />
+      
+            <NavigationId 
+                totalItems={filmes.length}
+                currentIndex={currentIndex}
+            />
+        </header>
+        
+        <main className={styles.homeMain}>
+            <CategorySlider/>
+            <div className={styles.topicContainer}>
+                <Topic text='O melhor da Ação'/>
+            </div>
             
-                <HomeCarrossel 
-                    key={filmeAtual.id}
-                    imageLink={filmeAtual.imageLink}
-                    titulo={filmeAtual.titulo}
-                    ano={filmeAtual.ano}
-                    genero={filmeAtual.genero}
-                />
+            <ActionMoviesSlider/> 
 
+            <div className={styles.topicContainer}>
+                <Topic text='Aclamados pela crítica'/>
+            </div>
             
-                <NavigationId 
-                    totalItems={mockFilmes.length}
-                    currentIndex={currentIndex}
-                />
+            <MoviesSlider/> 
 
-            </header>
-           
-            <main className={styles.homeMain}>
-                <CategorySlider/>
-                <div className={styles.topicContainer}>
-                    <Topic text='O melhor da Ação'/>
-                </div>
-                
-                <ActionMoviesSlider/>
+            <div className={styles.topicContainer}>
+                <Topic text='Em destaque'/>
+            </div>
 
-                <div className={styles.topicContainer}>
-                    <Topic text='Aclamados pela crítica'/>
-                </div>
-                
-                <MoviesSlider/>
+            <MoviesSlider/>
 
-                <div className={styles.topicContainer}>
-                    <Topic text='Em destaque'/>
-                </div>
+            {isLoggedIn ? (
+                <section className={styles.ctaBannerLoggedIn}>
+                    <div className={styles.ctaContent}>
+                        <h1>Compartilhe suas histórias.</h1>
+                        
+                        <Link to="/solicitation" >
+                            <ButtonHome text='Cadastrar novo filme'></ButtonHome>
+                        </Link>
+                        <p>Faça o Registro de um novo filme na MaguFlix para expandir nossas histórias!</p>
+                    </div>
+                    <img src={Magu} alt="MaguFlix Logo" className={styles.ctaImage} />
 
-                <MoviesSlider/>
-            </main>
+                </section>
+            ) : (
 
-            <Footer variant='max'/>
-            
-        </div>
-    )
+                <section className={styles.ctaBannerLoggedOut}>
+                    <div className={styles.ctaContent}>
+                        <div className={styles.title}>
+                            <h1>Navegue pela sua imaginação.</h1>
+                            <img src={Magu} alt="MaguFlix Logo" className={styles.ctaImage} />
+                        </div>
+
+                        <Link to="/login">
+                            <ButtonHome text='Login'></ButtonHome>
+                        </Link>
+                        <p>Faça seu registro ou login na MaguFlix para descobrir novos filmes e aventuras.</p>
+                    </div>
+                    
+                </section>
+            )}
+        </main>
+
+        <Footer variant='max'/>
+        
+    </div>
+  )
 };
 
 export default Home;

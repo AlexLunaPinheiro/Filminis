@@ -42,6 +42,14 @@
     display: block;
 }
 
+.poster p{
+    margin: 10px;
+}
+
+.banner p{
+    margin: 10px;
+}
+
 .bannerSection{
     display: flex;
     flex-direction: column;
@@ -62,3 +70,4 @@
     object-fit: cover;
     display: block;
 }
+

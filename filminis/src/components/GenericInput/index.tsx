@@ -1,7 +1,6 @@
 import styles from './GenericInput.module.css';
-import React from 'react'; // Importe o React para os tipos
+import React from 'react';
 
-// 1. Defina suas props *customizadas* separadamente
 type CustomInputProps = {
   label: string;
   variant?: "full" | "mid" | "min" | "textBox";

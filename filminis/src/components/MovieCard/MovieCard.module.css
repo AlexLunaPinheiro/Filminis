@@ -1,5 +1,6 @@
 .movieCard {
     width: 213px; 
+    height: 351px;
     flex-shrink: 0; 
     background-color: transparent;
     font-family: var(--fonte-primaria); 

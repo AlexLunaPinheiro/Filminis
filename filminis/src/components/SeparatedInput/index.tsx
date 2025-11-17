@@ -1,17 +1,25 @@
 import styles from './SeparatedInput.module.css';
+import React from 'react'; // Importar React para ChangeEvent
 
 type SeparatedInputProps = {
   label: string;
   placeholder: string;
   variant?: "base" | "textBox" | "profile" | "password" | "solicitationText";
-  type?: string; // 1. Adicione a prop 'type'
+  type?: string;
+  // 1. Adicionar props de componente controlado
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  readOnly?: boolean;
 };
 
 function SeparatedInput({ 
   label, 
   placeholder, 
   variant = "base", 
-  type = "text" // 2. Receba 'type' (com "text" como padrão)
+  type = "text",
+  value,       // 2. Receber as props
+  onChange,
+  readOnly = false
 }: SeparatedInputProps) {
   
   return (
@@ -22,12 +30,18 @@ function SeparatedInput({
         <textarea
           className={`${styles.input} ${styles[variant]}`}
           placeholder={placeholder}
+          value={value}       // 3. Conectar
+          onChange={onChange} // 3. Conectar
+          readOnly={readOnly}
         />
       ) : (
         <input
           className={`${styles.input} ${styles[variant]}`}
           type={type} 
           placeholder={placeholder}
+          value={value}       // 3. Conectar
+          onChange={onChange} // 3. Conectar
+          readOnly={readOnly}
         />
       )}
     </div>

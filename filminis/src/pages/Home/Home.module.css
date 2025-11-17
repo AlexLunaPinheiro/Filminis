@@ -29,3 +29,81 @@
     display: flex;
     padding: 7vh 7vw;
 }
+
+.ctaContent {
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    font-family: var(--fonte-primaria);
+}
+.ctaContent h1 {
+    max-width: 760px;
+    font-size: 96px;
+    font-weight: 400;
+    margin-bottom: 150px;
+    color: #fff; 
+}
+.ctaContent p {
+    font-size: 36px;
+    color: var(--cor-texto-cinza-claro);
+    max-width: 1300px;
+    margin-bottom: 10px;
+}
+
+.ctaImage {
+    z-index: 1;
+}
+
+
+.ctaBannerLoggedOut {
+    width: 100%;
+    height: 766px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 120px;
+    background-image: url('../../assets/images/MadMax.png');
+    background-size:cover ;
+    margin-top: 50px;
+    overflow: hidden;
+}
+
+.ctaBannerLoggedOut .title{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.ctaBannerLoggedOut .ctaContent {
+
+}
+.ctaBannerLoggedOut .ctaImage {
+    align-self: flex-start;
+    transform: scale(1.2);
+}
+
+
+.ctaBannerLoggedIn {
+    width: 1570px;
+    height: 621px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background: url('../../assets/images/hellraiser.png');
+    margin-top: 50px;
+    overflow: hidden;
+}
+.ctaBannerLoggedIn .ctaContent {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.ctaBannerLoggedIn img{
+    align-self: flex-end;
+    transform: scale(1.2);
+}

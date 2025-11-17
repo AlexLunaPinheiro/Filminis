@@ -1,0 +1,110 @@
+.tableContainer {
+    width: 1800px;
+    margin-top: 40px; 
+    font-family: var(--fonte-primaria);
+    background-color: var(--cor-tercearia);
+    border: solid 1px var(--cor-borda-de-formulario-cinza-escuro);
+    overflow: hidden; 
+    border-radius: 10px;
+}
+
+.tableHeader {
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px var(--cor-borda-de-formulario-cinza-escuro);
+}
+
+.tableHeader h2 {
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--cor-secundaria);
+    margin: 0;
+}
+
+.tableScrollContainer {
+    max-height: 700px; 
+    overflow-y: auto; 
+    padding: 12px; 
+    scrollbar-width: thin; 
+    scrollbar-color: var(--cor-borda-de-formulario-cinza-escuro) transparent; 
+}
+
+.tableScrollContainer::-webkit-scrollbar {
+    width: 8px;
+}
+.tableScrollContainer::-webkit-scrollbar-track {
+     background: var(--cor-tercearia, #222); 
+}
+.tableScrollContainer::-webkit-scrollbar-thumb {
+    background-color: var(--cor-borda-de-formulario-cinza-escuro);
+    border-radius: 4px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse; 
+    border-radius: 10px 10px 0px 0px;
+    overflow: hidden;
+    color: var(--cor-texto-principal-branco);
+}
+
+.th {
+    padding: 20px; 
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    vertical-align: middle; 
+    position: sticky;
+    top: 0;
+    z-index: 1; 
+    background-color: var(--cor-borda-de-formulario-cinza-escuro);
+    text-align: left;
+}
+
+.dataRow {
+    background-color: var(--cor-tercearia); 
+    border-left: solid 1px var(--cor-borda-de-formulario-cinza-escuro) ;
+    border-right: solid 1px var(--cor-borda-de-formulario-cinza-escuro);
+}
+
+.td {
+    padding: 20px;
+    vertical-align: middle;
+    font-size: 16px;
+    border-bottom: 1px solid var(--cor-borda-de-formulario-cinza-escuro);
+    text-align: left;
+}
+
+
+.actionButtons {
+    display: flex;
+    gap: 10px;
+    justify-content: center; 
+}
+
+
+.th:nth-child(1), .td:nth-child(1) {
+    width: 15%;
+}
+
+.th:nth-child(2), .td:nth-child(2) {
+    width: 30%;
+}
+
+.th:nth-child(3), .td:nth-child(3) {
+    width: 15%;
+}
+
+.th:nth-child(4), .td:nth-child(4) {
+    width: 20%;
+}
+
+.th:nth-child(5) {
+    width: 20%;
+    text-align: center; 
+}
+.td:nth-child(5) {
+    width: 100%;
+}

@@ -1,0 +1,33 @@
+.dashboardContainer {
+    width: 100%;
+    min-height: 100vh;
+    background: url('../../assets/background/FUNDO.png');
+    background-size: cover;
+    font-family: var(--fonte-primaria);
+    color: #fff;
+}
+
+.dashboardMain {
+    margin-top: 70px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.statsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: space-between;
+}
+
+.requestSection {
+    margin-top: 40px;
+}
+
+.requestSection h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}

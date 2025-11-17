@@ -2,6 +2,8 @@ import Jason from '../../assets/images/Jason.png'
 import Bourne from '../../assets/images/Bourne.png'
 import Forest from '../../assets/images/ForrestGump.png'
 import Interestelar from '../../assets/images/Interestelar.png'
+import Drama from '../../assets/images/O-PIANISTA.png'
+import seven from '../../assets/images/S7VEN.png'
 
 export type Category = {
   title: string;
@@ -28,10 +30,10 @@ export const categories: Category[] = [
   },
   {
     title: "DRAMA",
-    imageLink: "URL_DA_IMAGEM_DRAMA"
+    imageLink: Drama
   },
   {
     title: "SUSPENSE",
-    imageLink: "URL_DA_IMAGEM_SUSPENSE"
+    imageLink: seven
   },
 ];

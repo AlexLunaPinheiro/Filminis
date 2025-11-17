@@ -1,27 +1,30 @@
-  import styles from './HomeCarrosselInfo.module.css'
-  import Seta from '../../assets/icons/Seta.png'
+import styles from './HomeCarrosselInfo.module.css'
+import Seta from '../../assets/icons/Seta.png'
+import { Link } from 'react-router-dom'; 
 
-  type HomeCarrosselInfoProps = {
+type HomeCarrosselInfoProps = {
+    filmeId: number; 
     ano: string;
     titulo: string;
     genero: string;
-  };
+};
 
-  function HomeCarrosselInfo({ ano, titulo, genero}: HomeCarrosselInfoProps) {
+function HomeCarrosselInfo({ filmeId, ano, titulo, genero}: HomeCarrosselInfoProps) {
     return (
-          <article className={styles.CarrosselInfo}>
-              <div className={styles.CarrosselInfoContainer}>
-                  <p>{titulo} ({ano})</p>
-                  <p>{genero}</p>
-              </div>
+        <article className={styles.CarrosselInfo}>
+            <div className={styles.CarrosselInfoContainer}>
+                <p>{titulo} ({ano})</p>
+                <p>{genero}</p>
+            </div>
 
-              <a href=''>VER MAIS
-                  <img src={Seta}></img>
-              </a>
+            <Link to={`/movies/${filmeId}`}>
+                VER MAIS
+                <img src={Seta} alt="Seta"></img>
+            </Link>
 
-          </article>
-          
+        </article>
+        
     );
-  }
+}
 
-  export default HomeCarrosselInfo;
+export default HomeCarrosselInfo;

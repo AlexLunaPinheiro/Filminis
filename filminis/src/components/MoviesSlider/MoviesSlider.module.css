@@ -10,7 +10,7 @@
 
 .viewport {
     max-width: 1645px;
-    height: 350px;
+    height: 370px;
     display: flex;
     align-items: flex-end;
     gap: 64px;

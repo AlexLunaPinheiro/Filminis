@@ -2,12 +2,23 @@
     width: 162px;
     height: 28px;
     border-radius: 10px;
-    background-color: var(--cor-botao-verde);
     border: none;
     font-size: 16px;
     font-weight: 600;
     color: #fff;
     transition: ease 200ms;
+}
+
+.actionButton.create{
+    background-color: var(--cor-botao-verde);
+}
+
+.actionButton.update{
+    background-color: var(--cor-botao-verde);
+}
+
+.actionButton.delete{
+    background-color: var(--cor-chips-vermelho);
 }
 
 .actionButton:hover{
