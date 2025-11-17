@@ -1,34 +1,29 @@
 from utils.http_utils import send_json_response
-from services.movie_service import FilmeService
-from urllib.parse import urlparse, parse_qs
+from services.movie_service import FilmeService 
+from urllib.parse import urlparse # Importar para ler a query
 
 class FilmeController:
-    def __init__(self):
-        self.filme_service = FilmeService()
+
+    # CORREÇÃO: Mude o __init__ para aceitar o serviço
+    def __init__(self, service):
+        self.filme_service = service # <-- Recebe o serviço
 
     def handle_get_all(self, handler):
-        parsed_path = urlparse(handler.path)
-        query_params = parse_qs(parsed_path.query)
-        
-        if query_params:
-            # É uma busca/filtro
-            filmes = self.filme_service.filtrar_filmes(query_params)
-        else:
-            # É listagem normal
-            filmes = self.filme_service.get_todos_filmes()
-            
+        # Passa o 'handler' para o service poder ler os filtros
+        filmes = self.filme_service.get_all_filmes(handler) 
         send_json_response(handler, 200, filmes)
 
     def handle_get_by_id(self, handler, filme_id):
-        filme = self.filme_service.get_detalhes_filme(filme_id)
+        filme = self.filme_service.get_filme_details(filme_id)
         if not filme:
             send_json_response(handler, 404, {'message': 'Filme não encontrado.'})
             return
         send_json_response(handler, 200, filme)
 
-        def handle_get_generos(self, handler):
-            generos = self.filme_service.get_generos()
-            send_json_response(handler, 200, generos)
+    # Funções de catálogo
+    def handle_get_generos(self, handler):
+        generos = self.filme_service.get_generos()
+        send_json_response(handler, 200, generos)
         
     def handle_get_atores(self, handler):
         atores = self.filme_service.get_atores()

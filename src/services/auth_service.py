@@ -9,11 +9,12 @@ class AuthService:
         user = self.user_repo.find_by_email(email)
         
         if not user:
-            return None, "Usuário não encontrado."
+            # Não retorne tupla aqui, o controller espera um único valor
+            return None 
         
-        # (user['password_hash'] vem como string, não bytes)
         if not check_password(password, user['password_hash']):
-            return None, "Senha incorreta."
+            # Não retorne tupla aqui
+            return None 
 
         token = create_jwt(user['id'], user['role'])
         
@@ -23,4 +24,8 @@ class AuthService:
             "role": user['role']
         }
 
-        return token, user_info
+        # CORREÇÃO AQUI: Retorne um dicionário (Objeto)
+        return {
+            "token": token,
+            "user": user_info
+        }

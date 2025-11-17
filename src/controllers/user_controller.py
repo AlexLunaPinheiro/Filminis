@@ -5,7 +5,6 @@ class UsuarioController:
         self.usuario_service = service
 
     def handle_get_solicitacoes(self, handler, user_data):
-        # user_data já foi validado pelo handler
         user_id = user_data['user_id']
         solicitacoes = self.usuario_service.get_minhas_solicitacoes(user_id)
         send_json_response(handler, 200, solicitacoes)
@@ -24,3 +23,11 @@ class UsuarioController:
             return
             
         send_json_response(handler, 201, {'message': 'Solicitação enviada com sucesso!'})
+
+    def handle_get_my_info(self, handler, user_data):
+        user_id = user_data['user_id']
+        user_info = self.usuario_service.get_user_info(user_id)
+        if not user_info:
+            send_json_response(handler, 404, {'message': 'Usuário não encontrado.'})
+            return
+        send_json_response(handler, 200, user_info)

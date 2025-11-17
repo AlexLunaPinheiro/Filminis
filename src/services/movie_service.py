@@ -1,18 +1,24 @@
 from repositories.movie_repository import FilmeRepository
+from urllib.parse import urlparse, parse_qs
 
 class FilmeService:
     def __init__(self):
         self.filme_repo = FilmeRepository()
 
-    def get_todos_filmes(self):
-        return self.filme_repo.get_all()
+    # CORREÇÃO: Recebe o 'handler'
+    def get_all_filmes(self, handler):
+        # Lógica de filtro movida para o service
+        query_string = urlparse(handler.path).query
+        if not query_string:
+            return self.filme_repo.get_all() # Chama get_all se não houver filtros
+            
+        params = parse_qs(query_string)
+        return self.filme_repo.filter_filmes(params) # Chama filter_filmes se houver filtros
 
-    def get_detalhes_filme(self, filme_id):
+    def get_filme_details(self, filme_id):
         return self.filme_repo.get_details_by_id(filme_id)
-        
-    def filtrar_filmes(self, filtros):
-        return self.filme_repo.filter_filmes(filtros)
-    
+
+    # --- Funções de Catálogo ---
     def get_generos(self):
         return self.filme_repo.get_all_generos()
 

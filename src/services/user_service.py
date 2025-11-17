@@ -1,12 +1,14 @@
 import json
 from repositories.solicitation_repository import SolicitacaoRepository
+from repositories.user_repository import UsuarioRepository
 
 class UsuarioService:
     def __init__(self):
         self.solic_repo = SolicitacaoRepository()
+        self.user_repo = UsuarioRepository()
 
     def criar_solicitacao(self, usuario_id, dados):
-        tipo = dados.get('tipo') # 'ADICAO' ou 'EDICAO'
+        tipo = dados.get('tipo')
         payload = dados.get('payload')
         filme_id_alvo = None
         
@@ -23,3 +25,7 @@ class UsuarioService:
 
     def get_minhas_solicitacoes(self, usuario_id):
         return self.solic_repo.get_by_usuario_id(usuario_id)
+    
+    def get_user_info(self, user_id):
+        user = self.user_repo.find_by_id(user_id)
+        return user
