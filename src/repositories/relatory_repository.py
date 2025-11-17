@@ -8,9 +8,9 @@ class RelatorioRepository:
         query_sol_edicao = "SELECT COUNT(*) as total FROM Solicitacao WHERE status = 'PENDENTE' AND tipo = 'EDICAO'"
         
         stats = {
-            'filmes_cadastrados': execute_query(query_filmes, fetchone=True)['total_filmes'],
-            'solicitacoes_em_aberto': execute_query(query_sol_aberto, fetchone=True)['total'],
-            'solicitacoes_de_criacao': execute_query(query_sol_adicao, fetchone=True)['total'],
-            'solicitacoes_de_edicao': execute_query(query_sol_edicao, fetchone=True)['total']
+            'cadastrados': execute_query(query_filmes, fetchone=True)['total_filmes'],
+            'aberto': execute_query(query_sol_aberto, fetchone=True)['total'],
+            'criacao': execute_query(query_sol_adicao, fetchone=True)['total'],
+            'edicao': execute_query(query_sol_edicao, fetchone=True)['total']
         }
         return stats
