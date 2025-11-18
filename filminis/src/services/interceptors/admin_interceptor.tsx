@@ -45,3 +45,20 @@ export async function reviewSolicitacao(id: number, acao: AcaoReview): Promise<{
     body: JSON.stringify({ acao }), // Envia a ação no corpo
   });
 }
+
+export async function adminCreateFilme(payload: any): Promise<any> {
+  return apiRequest('/admin/filmes', {
+    method: 'POST',
+    body: JSON.stringify(payload),
+  });
+}
+
+/**
+ * (Admin) Atualiza um filme diretamente pelo ID.
+ */
+export async function adminUpdateFilme(id: string | number, payload: any): Promise<any> {
+  return apiRequest(`/admin/filmes/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(payload),
+  });
+}

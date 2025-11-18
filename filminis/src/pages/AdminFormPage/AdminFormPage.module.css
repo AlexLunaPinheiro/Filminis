@@ -1,0 +1,16 @@
+.solicitationContainer{
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    /* (Eu recomendo usar o Fundo de Solicitação, mas pode trocar se quiser) */
+    background: url('../../assets/background/FUNDO-SOLICITAÇÃO.png');
+    background-size:cover ;
+    font-family: var(--fonte-primaria);
+}
+
+.solicitationContainer main{
+    /* (Padding um pouco maior no topo, já que não temos as abas) */
+    padding: 120px 30px 30px 30px;
+    display: flex;
+    justify-content: center;
+}
