@@ -6,33 +6,26 @@ from config.settings import JWT_SECRET_KEY
 def hash_password(password):
     return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
+#Função para verificar se a senha da response bate com a senha do banco
 def check_password(password, hashed_password):
-    print("\n--- DEBUG BCRYPT (MODO REPR) ---")
     
-    # 1. Usando repr() para ver a string "real"
-    print(f"Senha (repr): {repr(password)}")
-    print(f"Hash (repr):  {repr(hashed_password)}")
-
-    # 2. Codificar para bytes
     password_bytes = password.encode('utf-8')
     hash_bytes = hashed_password.encode('utf-8')
 
-    # 3. A comparação (sem try/except)
-    result = bcrypt.checkpw(password_bytes, hash_bytes)
-    
-    print(f"Resultado da Comparação: {result}")
-    print("----------------------------------\n")
+    result = bcrypt.checkpw(password_bytes, hash_bytes)#Verifica a comparação da senha do banco com a senha que vem da response
     
     return result
 
+#Função para criar um jwt
 def create_jwt(user_id, role):
     payload = {
         'user_id': user_id,
         'role': role,
-        'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=24)
+        'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=24)#Adiciona 24 horas na duração do token
     }
     return jwt.encode(payload, JWT_SECRET_KEY, algorithm="HS256")
 
+#Função para decodificar o token jwt
 def decode_jwt(token):
     try:
         payload = jwt.decode(token, JWT_SECRET_KEY, algorithms=["HS256"])

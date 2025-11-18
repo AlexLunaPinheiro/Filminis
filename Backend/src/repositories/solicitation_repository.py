@@ -10,7 +10,6 @@ class SolicitacaoRepository:
         return execute_query(query, (usuario_id, tipo, payload_json, filme_id_alvo), commit=True)
 
     def get_by_usuario_id(self, usuario_id):
-        # O status "Em análise" do Figma é o "PENDENTE" no banco
         query = """
             SELECT s.id, s.tipo, 
             CASE 

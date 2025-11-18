@@ -3,19 +3,17 @@ from http.server import BaseHTTPRequestHandler
 from urllib.parse import urlparse
 from utils.http_utils import send_json_response, handle_cors_options, get_auth_user
 
-# Importar serviços
 from services.auth_service import AuthService
 from services.movie_service import FilmeService
 from services.user_service import UsuarioService
 from services.admin_service import AdminService
 
-# Importar controllers
 from controllers.auth_controller import AuthController
 from controllers.movie_controller import FilmeController
 from controllers.user_controller import UsuarioController
 from controllers.admin_controller import AdminController
 
-# Instanciar serviços
+# Instancias de serviços
 auth_service = AuthService()
 filme_service = FilmeService()
 usuario_service = UsuarioService()
@@ -27,7 +25,7 @@ filme_controller = FilmeController(filme_service)
 usuario_controller = UsuarioController(usuario_service)
 admin_controller = AdminController(admin_service)
 
-# Definição de Rotas (Regex)
+# Definição de Rotas com regex para lidar com path parameters
 RE_FILME_ID = re.compile(r'^/filmes/(\d+)$')
 RE_ADMIN_SOLICITACAO_ID = re.compile(r'^/admin/solicitacoes/(\d+)$')
 RE_ADMIN_REVIEW_ID = re.compile(r'^/admin/solicitacoes/(\d+)/review$')
@@ -70,12 +68,12 @@ class FilminisHTTPHandler(BaseHTTPRequestHandler):
         
         user_data = get_auth_user(self)
         if not user_data:
-            # Se não tiver token, bloquear (Verifica se a rota é protegida)
+            # Se não tiver token, bloqueia o payload 
             if path.startswith('/solicitacoes') or path == '/profile' or path.startswith('/admin/'):
                 send_json_response(self, 401, {'message': 'Token de autenticação inválido ou ausente.'})
                 return
             else:
-                # Se não for nenhuma rota conhecida, 404
+                #Retorna 404 cas não seja uma rota listada
                 send_json_response(self, 404, {'message': 'Endpoint não encontrado.'})
                 return
 
@@ -104,7 +102,7 @@ class FilminisHTTPHandler(BaseHTTPRequestHandler):
                 admin_controller.handle_get_solicitacao_by_id(self, solic_id)
                 return
         
-        # Se o usuário NÃO é admin e tenta acessar /admin
+        # Se o usuário não é admin e tenta acessar /admin
         if user_data['role'] != 'ADMIN' and path.startswith('/admin/'):
              send_json_response(self, 403, {'message': 'Acesso restrito a administradores.'})
              return
@@ -148,6 +146,7 @@ class FilminisHTTPHandler(BaseHTTPRequestHandler):
         
         send_json_response(self, 404, {'message': 'Endpoint não encontrado.'})
 
+    #Método put
     def do_PUT(self):
         path = urlparse(self.path).path
         
@@ -156,7 +155,7 @@ class FilminisHTTPHandler(BaseHTTPRequestHandler):
             send_json_response(self, 403, {'message': 'Acesso restrito a administradores.'})
             return
 
-        # Admin: Edição direta de filme
+        # Edição direta de filme (só o admin pode)
         admin_filme_match = RE_ADMIN_FILME_ID.match(path)
         if admin_filme_match:
             filme_id = int(admin_filme_match.group(1))
@@ -173,7 +172,7 @@ class FilminisHTTPHandler(BaseHTTPRequestHandler):
             send_json_response(self, 403, {'message': 'Acesso restrito a administradores.'})
             return
 
-        # Admin: Deleção direta de filme
+        # Deleção direta de filme (só o admin pode tbm)
         admin_filme_match = RE_ADMIN_FILME_ID.match(path)
         if admin_filme_match:
             filme_id = int(admin_filme_match.group(1))

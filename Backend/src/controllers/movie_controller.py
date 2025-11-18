@@ -4,12 +4,11 @@ from urllib.parse import urlparse # Importar para ler a query
 
 class FilmeController:
 
-    # CORREÇÃO: Mude o __init__ para aceitar o serviço
     def __init__(self, service):
-        self.filme_service = service # <-- Recebe o serviço
+        self.filme_service = service 
 
     def handle_get_all(self, handler):
-        # Passa o 'handler' para o service poder ler os filtros
+        # Passa o handler para o service poder ler os filtros
         filmes = self.filme_service.get_all_filmes(handler) 
         send_json_response(handler, 200, filmes)
 

@@ -5,9 +5,7 @@ class FilmeService:
     def __init__(self):
         self.filme_repo = FilmeRepository()
 
-    # CORREÇÃO: Recebe o 'handler'
     def get_all_filmes(self, handler):
-        # Lógica de filtro movida para o service
         query_string = urlparse(handler.path).query
         if not query_string:
             return self.filme_repo.get_all() # Chama get_all se não houver filtros
@@ -18,7 +16,6 @@ class FilmeService:
     def get_filme_details(self, filme_id):
         return self.filme_repo.get_details_by_id(filme_id)
 
-    # --- Funções de Catálogo ---
     def get_generos(self):
         return self.filme_repo.get_all_generos()
 

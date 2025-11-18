@@ -7,6 +7,7 @@ class RelatorioRepository:
         query_sol_adicao = "SELECT COUNT(*) as total FROM Solicitacao WHERE status = 'PENDENTE' AND tipo = 'ADICAO'"
         query_sol_edicao = "SELECT COUNT(*) as total FROM Solicitacao WHERE status = 'PENDENTE' AND tipo = 'EDICAO'"
         
+        #constroi um dicionario com os valores dos estados (dashboard)
         stats = {
             'cadastrados': execute_query(query_filmes, fetchone=True)['total_filmes'],
             'aberto': execute_query(query_sol_aberto, fetchone=True)['total'],

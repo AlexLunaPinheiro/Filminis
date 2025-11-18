@@ -3,9 +3,8 @@ from services.auth_service import AuthService
 
 class AuthController:
     
-    # CORREÇÃO: Mude o __init__ para aceitar o serviço
     def __init__(self, service):
-        self.auth_service = service # <-- Recebe o serviço
+        self.auth_service = service 
 
     def handle_login(self, handler):
         data = parse_json_body(handler)
@@ -21,5 +20,4 @@ class AuthController:
             send_json_response(handler, 401, {'message': 'Credenciais inválidas.'})
             return
             
-        # Esta linha agora enviará o JSON { "token": ..., "user": ... }
         send_json_response(handler, 200, result)

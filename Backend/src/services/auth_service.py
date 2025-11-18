@@ -9,11 +9,9 @@ class AuthService:
         user = self.user_repo.find_by_email(email)
         
         if not user:
-            # Não retorne tupla aqui, o controller espera um único valor
             return None 
         
         if not check_password(password, user['password_hash']):
-            # Não retorne tupla aqui
             return None 
 
         token = create_jwt(user['id'], user['role'])
@@ -23,8 +21,7 @@ class AuthService:
             "nome": user['nome'],
             "role": user['role']
         }
-
-        # CORREÇÃO AQUI: Retorne um dicionário (Objeto)
+        #Retorna o token + informações do usuário
         return {
             "token": token,
             "user": user_info

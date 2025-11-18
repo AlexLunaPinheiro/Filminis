@@ -7,6 +7,8 @@ PORT = 8000
 def run_server():
     try:
         server_address = (HOST, PORT)
+        # Cria uma instância do servidor HTTP, passando o 'handler' que vai
+        # processar todas as requisições que chegarem.
         httpd = HTTPServer(server_address, FilminisHTTPHandler)
         
         print(f"Servidor backend do Filminis rodando em http://{HOST}:{PORT}")
