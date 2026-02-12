@@ -1,0 +1,15 @@
+.topic{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    font-size: 36px;
+    font-family: var(--fonte-primaria);
+}
+
+.topic::after{
+    content: '';
+    margin-top: 10px;
+    border: 2px solid transparent; 
+    border-image: var(--gradiente-topico-verde) 1;
+    
+}

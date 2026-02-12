@@ -1,0 +1,37 @@
+.bannerCarrossel{
+    margin-top: 10vh;
+    width: 1565px;
+    height: 508px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    border-radius: 25px;
+    border: 3px solid var(--cor-borda-de-formulario-cinza-escuro);
+    animation: fadeIn 0.7s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.3;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.bannerCarrossel figure {
+    width: 110%;
+    height: 100%;
+    margin: 0;
+}
+
+.bannerCarrossel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+    object-position: 50% 20%;
+}
+

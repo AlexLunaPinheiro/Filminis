@@ -1,0 +1,46 @@
+.movieCard {
+    width: 213px; 
+    height: 351px;
+    flex-shrink: 0; 
+    background-color: transparent;
+    font-family: var(--fonte-primaria); 
+    transition: ease 200ms;
+}
+
+.movieCard:hover{
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.movieCard figure {
+    width: 100%;
+    height: 270px; 
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 0;
+    margin-bottom: 12px; 
+}
+
+.movieCard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.infoContainer h1 {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--cor-texto-principal); 
+    margin: 0 0 5px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.desc {
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+    color: var(--cor-texto-cinza-claro);
+}

@@ -1,0 +1,28 @@
+.userRequestsContainer{
+    width: 100%;
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+}
+
+.RequestsHeader{
+    height: 93px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    border-bottom:solid 1px var(--cor-borda-de-formulario-cinza-escuro);
+    flex-shrink: 0; 
+}
+
+/* --- CORREÇÃO AQUI --- */
+.requestsTable{ 
+    /* 1. O PAI SÓ APLICA O PADDING. NADA DE SCROLL. */
+    padding: 50px;
+
+    /* 2. REMOVA TUDO ABAIXO: */
+    /* flex-grow: 1;  <-- REMOVA */
+    /* overflow-y: auto; <-- REMOVA */
+    /* padding-left/right/bottom <-- REMOVA */
+    /* Todos os estilos ::-webkit-scrollbar <-- REMOVA */
+}

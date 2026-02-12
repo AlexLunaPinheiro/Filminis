@@ -1,0 +1,21 @@
+.ButtonHome{
+    width: 246px;
+    height: 79px;
+    border-radius: 10px;
+    font-family: var(--fonte-primaria) ;
+    background-color: var(--cor-botao-verde);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    transition: ease 200ms;
+}
+
+.ButtonHome:hover{
+    cursor: pointer;
+    transform:scale(1.05)
+}
+
+.ButtonHome:active{
+    transform:scale(1)
+}

@@ -1,0 +1,12 @@
+.NavigationDot{
+    width: 60.64px;
+    height: 7px;
+    background-color: var(--cor-borda-inferior-nav-item-cinza-claro);
+    border-radius: 10px;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.NavigationDot.active{
+    background-color: var(--cor-secundaria);
+    box-shadow: 0 0 12px 1px var(--cor-secundaria);
+}

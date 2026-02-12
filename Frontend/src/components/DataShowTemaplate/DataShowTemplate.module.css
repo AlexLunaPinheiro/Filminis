@@ -1,0 +1,6 @@
+.DataTemplate{
+    width: 1300px;
+    height: 752px;
+    background-color: var(--cor-tercearia);
+    border: solid 1px var(--cor-borda-de-formulario-cinza-escuro);
+}

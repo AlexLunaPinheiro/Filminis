@@ -1,0 +1,55 @@
+.AboutUsContainer{
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fonte-secundaria);
+    background-image: url('../../assets/background/SOBRE-NOS-FUNDO.png');
+    background-size:cover;
+}
+
+.aboutUsMain{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 94px 320px;
+    align-items: center;
+}
+
+.description{
+    margin-top: 133px;
+    font-weight: 400;
+    width: 900px;
+    font-size: 36px;
+    text-align: center;
+}
+
+.pilarsSection{
+    height: 471px;
+    margin-top: 125px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.devsSections{
+    margin-top: 125px;
+    height: 518px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.aboutTitle{
+    margin-top: 140px;
+    display: flex;
+    gap: 20px;
+}
+
+.aboutTitle h1{
+    font-size: 96px;
+    color: #fff;
+}
+
+.aboutTitle h1.variant{
+    color: var(--cor-secundaria)
+}
+

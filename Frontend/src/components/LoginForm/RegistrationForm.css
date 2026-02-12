@@ -1,0 +1,46 @@
+.formContainer {
+  margin-top: 100px;
+  width: 711px;
+  height: 587px;
+  background-color: #1A1A1A;
+  border-radius: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 0.5px #2F2E31;
+  padding: 43px;
+  gap: 44px;
+}
+
+.formTitleContainer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.formInputsContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.input-row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .input-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}

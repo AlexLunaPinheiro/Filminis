@@ -1,0 +1,53 @@
+.formRegistrationContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.inputsContainer{
+    margin-top: 40px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 48px;
+    row-gap: 30px;
+}
+
+.sinopseContainer {
+    grid-column: span 2; 
+}
+
+
+.chipsContainer {
+    display: flex;
+    flex-wrap: nowrap; 
+    gap: 10px;
+    overflow-x: auto; 
+    align-content: flex-start;
+    padding-bottom: 10px; 
+    scrollbar-width: thin; 
+    scrollbar-color: var(--cor-borda-de-formulario-cinza-escuro) transparent; 
+}
+
+
+.chipsContainer::-webkit-scrollbar {
+    height: 8px; 
+}
+
+.chipsContainer::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+.chipsContainer::-webkit-scrollbar-thumb {
+    background-color: var(--cor-borda-de-formulario-cinza-escuro);
+    border-radius: 4px;
+}
+
+
+
+.submitButtonContainer {
+    width: 100%;
+    margin-top: 50px;
+    padding-top: 30px;
+}

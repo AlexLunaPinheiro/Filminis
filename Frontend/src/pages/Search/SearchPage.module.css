@@ -1,0 +1,56 @@
+.searchContainer{
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    font-family: var(--fonte-primaria);
+    background-image: url('../../assets/background/FUNDO-PESQUISA.png');
+    background-size:cover ;
+    background-repeat: no-repeat;
+}
+.searchMain{
+    margin-top: 70px;
+    margin-left: 10px;
+    display: flex;
+    gap:28px;
+}
+
+aside{
+    display: flex;
+    flex-direction: column;
+    gap: 43px;
+}
+
+.filterButtonGroup{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.searchResults{
+ display: flex;
+ flex-direction: column;
+ gap: 70px;
+}
+
+
+.resultGrid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 1600px; 
+    max-height: 80vh; 
+    overflow-y: auto; 
+}
+
+
+.resultGrid::-webkit-scrollbar {
+    width: 8px;
+}
+.resultGrid::-webkit-scrollbar-track {
+    background: #222; 
+    border-radius: 4px;
+}
+.resultGrid::-webkit-scrollbar-thumb {
+    background-color: var(--cor-secundaria); 
+    border-radius: 4px;
+}

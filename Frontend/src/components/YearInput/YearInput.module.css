@@ -1,0 +1,39 @@
+.yearContainer{
+    color:#fff;
+    font-family: var(--fonte-primaria);
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    padding-left:10px ;
+}
+
+.yearContainer label{
+    font-size: 36px;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.yearInputContainer{
+    display: flex;
+    width: 346px;
+
+}
+
+.yearInputContainer input {
+  width: 410px;
+  background-color: transparent;
+  border: none;               
+  border-bottom: 1px solid #fff; 
+  color: #fff;
+  outline: none;                 
+}
+
+.yearInputContainer input::placeholder{
+    font-size: 20px;
+}
+
+.yearInputContainer input:focus{
+    font-size: 20px;
+    color: #fff;
+}

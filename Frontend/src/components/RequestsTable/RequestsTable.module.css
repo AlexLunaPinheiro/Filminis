@@ -1,0 +1,79 @@
+.tableBorderWrapper {
+    border: solid 1px var(--cor-borda-de-formulario-cinza-escuro);
+    border-radius: 10px;
+    overflow: hidden; 
+    
+}
+
+.tableScrollContainer {
+    max-height: 550px; 
+    overflow-y: auto; 
+    padding-right: 8px; 
+    scrollbar-width: thin; 
+    scrollbar-color: var(--cor-borda-de-formulario-cinza-escuro) transparent; 
+}
+
+.tableScrollContainer::-webkit-scrollbar {
+    width: 8px;
+}
+.tableScrollContainer::-webkit-scrollbar-track {
+    background: var(--cor-tercearia, #222); 
+}
+.tableScrollContainer::-webkit-scrollbar-thumb {
+    background-color: var(--cor-borda-de-formulario-cinza-escuro);
+    border-radius: 4px;
+}
+
+.table {
+    font-weight: 600;
+    width: 100%;
+    border-collapse: collapse; 
+    color: var(--cor-texto-principal-branco);
+}
+
+
+.th {
+    padding: 20px; 
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    vertical-align: middle; 
+    position: sticky;
+    top: 0;
+    z-index: 1; 
+    background-color: var(--cor-borda-de-formulario-cinza-escuro);
+}
+
+.dataRow {
+    background-color: var(--cor-tercearia, #222); 
+}
+
+.td {
+    padding: 20px;
+    vertical-align: middle;
+    font-size: 16px;
+    border-bottom: 1px solid var(--cor-borda-de-formulario-cinza-escuro);
+}
+
+.dataRow:last-child .td {
+    border-bottom: none;
+}
+
+
+.th:nth-child(1), .td:nth-child(1),
+.th:nth-child(2), .td:nth-child(2),
+.th:nth-child(3), .td:nth-child(3) {
+    text-align: left;
+    width: 25%;
+}
+
+.th:nth-child(4) {
+    text-align: center;
+    width: 25%;
+}
+
+.td:nth-child(4) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

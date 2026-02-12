@@ -1,0 +1,83 @@
+
+
+/* O container preto externo (baseado no seu .container) */
+.toggleContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* Largura total = 403.2px (max) + 165px (min) */
+    width: 568.2px; 
+    height: 81.9px;
+    background-color: #0D0D0D;
+    border-radius: 50px;
+    border-bottom: solid 1px #363636;
+    padding: 4px; /* Espaço para o "pill" interno */
+    box-sizing: border-box;
+}
+
+/* O "pill" cinza deslizante (baseado no seu .formIcon) */
+.highlightPill {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    
+    /* Estado inicial (Formulário Ativo) */
+    width: 403.2px; /* Sua largura .max */
+    height: calc(100% - 8px); /* 81.9px - 8px de padding */
+    
+    background-color: #1B1B1B;
+    border-radius: 50px;
+    border-top: solid 1px #363636;
+    
+    /* A animação de slide e tamanho */
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* O estado "Preview Ativo" */
+.slideRight {
+    width: 165px; /* Sua largura .min */
+    /* Move o pill para a direita (403.2px = largura do botão de formulário) */
+    transform: translateX(403.2px); 
+}
+
+/* Os botões de texto (transparentes) */
+.toggleButton {
+    position: relative;
+    z-index: 1; /* Fica em cima do "pill" */
+    background: transparent;
+    border: none;
+    color: #888; /* Cor do texto inativo */
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    height: 100%;
+    border-radius: 50px;
+    transition: color 0.3s ease;
+    font-family: var(--fonte-primaria);
+}
+
+/* Larguras dos botões (baseadas no seu .max e .min) */
+.formButton {
+    width: 403.2px;
+}
+.previewButton {
+    width: 165px;
+}
+
+/* Cor do texto ativo */
+.textActive {
+    color: white;
+}
+
+/* --- Estilos para o conteúdo de exemplo --- */
+.contentContainer {
+    width: 100%;
+    max-width: 900px;
+}
+.contentBox {
+    background-color: #1B1B1B;
+    padding: 30px;
+    border-radius: 10px;
+    color: white;
+    border: 1px solid #363636;
+}

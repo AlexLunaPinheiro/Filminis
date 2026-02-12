@@ -1,0 +1,121 @@
+.adminFormContainer {
+    width: 1803px; 
+    min-height: 1131px;
+    background-color: var(--cor-tercearia);
+    border-radius: 40px;
+    border: solid 2px var(--cor-borda-de-formulario-cinza-escuro);
+    padding: 50px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.formHeader {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.infoSection h2,
+.catalogoSection h2 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px 20px;
+}
+
+/* --- A CORREÇÃO ESTÁ AQUI --- 
+*/
+
+/* 1. Força TODOS os GenericInputs dentro do .grid a terem largura automática,
+   ignorando os 'width: 765px' ou 'width: 1270px' do GenericInput.module.css */
+.grid > :global(div[class*="inputContainer"]) {
+    width: 100% !important; 
+}
+
+/* 2. Seletor robusto para fazer as variantes 'full' e 'textBox' 
+   ocuparem as duas colunas do grid */
+.grid > :global(div[class*="inputContainer"][class*="full"]),
+.grid > :global(div[class*="inputContainer"][class*="textBox"]) {
+    grid-column: span 2;
+}
+
+
+/* --- Estilos (Corretos) para <select> e Chips --- */
+
+.catalogoSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 20px;
+}
+
+.selectGroup,
+.selectContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* 3. Força o selectContainer (Nacionalidade) a ter 100% da célula do grid */
+    width: 100%; 
+}
+
+.selectGroup label,
+.selectContainer label {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: var(--fonte-primaria);
+}
+
+.selectGroup select,
+.selectContainer select {
+    background-color: var(--cor-fundo-input-cinza);
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: var(--fonte-primaria);
+    padding: 0 30px;
+    border: solid 1px var(--cor-borda-de-input-cinza-escuro);
+    border-radius: 10px;
+    height: 79px; 
+    width: 100%; /* 4. Garante que o select preencha o container */
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    background-image: url('../../assets/icons/Down.png'); 
+    background-repeat: no-repeat;
+    background-position: right 30px center;
+}
+
+.selectGroup select:focus,
+.selectContainer select:focus {
+    outline: none;
+    border-color: var(--cor-secundaria);
+}
+
+.tagsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 50px; 
+    
+    & > div[class*="chips"] {
+        cursor: pointer;
+    }
+}
+
+/* (Faz o grupo de Gênero ocupar as 2 colunas) */
+.catalogoSection .selectGroup:first-of-type {
+    grid-column: span 2;
+}
+
+.submitButtonContainer {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

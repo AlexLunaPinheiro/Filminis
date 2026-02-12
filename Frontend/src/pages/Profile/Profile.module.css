@@ -1,0 +1,16 @@
+.profileContainer{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: url('../../assets/background/USUARIO-FUNDO.png');
+    background-size:cover ;
+    background-repeat: no-repeat ;
+    font-family: var(--fonte-primaria);
+}
+
+.profileMain{
+    padding: 100px 70px 0px 70px;
+    display: flex;
+    justify-content: space-between;
+}

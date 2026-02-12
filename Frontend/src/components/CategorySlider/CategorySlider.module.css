@@ -1,0 +1,27 @@
+.sliderViewport {
+    width: 1655px; 
+    height: 410px;
+    display: flex;
+    align-items: flex-end;
+    margin: 0 auto;
+    margin-top: 15vh;
+    overflow-x: auto; 
+    overflow-y: visible;
+    
+    cursor: grab;
+    user-select: none;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.sliderViewport::-webkit-scrollbar {
+    display: none;
+}
+.sliderViewport.active {
+    cursor: grabbing;
+}
+
+.sliderContainer {
+    display: inline-flex; 
+    gap: 40px;
+}

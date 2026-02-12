@@ -1,0 +1,30 @@
+.navItem {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  gap: 10px;
+  position: relative; 
+  height: 100%; 
+  transition: ease-in 200ms;
+}
+
+.navItem:hover{
+    color: var(--cor-secundaria)
+}
+
+.navItem.active::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: -15%;
+  width: 120%;
+  height: 2px;
+  background-color: var(--cor-borda-inferior-nav-item-cinza-claro);
+  border-radius: 2px;
+}
+
+p{
+    font-size: 1rem;
+    font-weight: 600;
+}

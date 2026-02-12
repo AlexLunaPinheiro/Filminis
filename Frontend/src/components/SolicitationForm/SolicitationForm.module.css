@@ -1,0 +1,15 @@
+.solicitationForm{
+    width: 1803px;
+    min-height: 1131px;
+    background-color: var(--cor-tercearia);
+    border-radius: 40px;
+    border: solid 2px var(--cor-borda-de-formulario-cinza-escuro);
+    padding: 50px 80px;
+    
+}
+
+.solicitationForm h1{
+    margin-top: 40px;
+    font-size: 40px;
+}
+

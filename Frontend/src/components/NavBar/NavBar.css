@@ -1,0 +1,64 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  position: fixed; 
+  padding: 15px 25px 15px 25px;
+  top: 0; 
+  width: 100%;
+  height: 69px; /* <-- Altura definida */
+  opacity: 0.95;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); 
+  border-bottom: solid 1px #353535;
+  z-index: 10; 
+  gap: 3vw;
+  font-family: var(--fonte-primaria);
+}
+
+.navbar.transparent{
+  background: transparent;
+}
+
+.navbar.solid{
+  background: #12141A;
+  background: linear-gradient(120deg, rgba(18, 20, 26, 1) 0%, rgba(25, 37, 39, 1) 100%);
+}
+
+.logo {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 100px;
+  height: 100%; 
+  margin: 0;
+  padding: 0;
+  flex-grow: 1;
+}
+
+/* ADICIONE ESTA NOVA REGRA */
+.nav-links li {
+  height: 100%; /* <-- CORREÇÃO: Faça a <li> preencher os 100% da <ul> */
+  display: flex;
+  align-items: center;
+}
+
+a{
+  text-decoration: none;
+}
+
+#profile{
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.nav-links li > a,
+.nav-links li > .nav-link-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  text-decoration: none;
+}
